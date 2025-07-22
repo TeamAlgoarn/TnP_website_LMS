@@ -3,10 +3,10 @@ This repository consist of all the development files related to training and pla
 
 ## Maintain the below folder structure
 
-TnP_website_LMS/
+<pre lang="md"> ``` TnP_website_LMS/
 ├── website/ # Main frontend project
-│ ├── Sumpreetsing/ # Pages & UI development
-│ ├── Keerthi/ # Form handling & deployment
+│ ├── Sumpreetsing/ # Pages & UI development (Intern 1)
+│ ├── Keerthi/ # Form handling & deployment (Intern 2)
 │ ├── public/
 │ ├── src/
 │ │ ├── components/
@@ -20,4 +20,5 @@ TnP_website_LMS/
 │ └── README.md
 ├── .gitignore
 ├── README.md
-└── LICENSE
+└── LICENSE ``` </pre>
+
