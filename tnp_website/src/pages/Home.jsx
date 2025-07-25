@@ -49,6 +49,8 @@ const Home = () => {
     },
   ];
 
+  
+
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
@@ -173,6 +175,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+       
     </div>
   );
 };
