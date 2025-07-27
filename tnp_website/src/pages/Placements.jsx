@@ -1,14 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Building2, TrendingUp, Users, Award, Star, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
 
 const Placements = () => {
+  const [statsAnimated, setStatsAnimated] = useState(false);
+  const statsRef = useRef(null);
+
+  // Stats animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !statsAnimated) {
+          setStatsAnimated(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [statsAnimated]);
+
+  // Counter animation hook
+  const useCounter = (end, duration = 2000, shouldStart = false, isPercentage = false) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      if (!shouldStart) return;
+
+      let startTime;
+      let animationFrame;
+
+      const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        
+        const currentCount = Math.floor(progress * end);
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, [end, duration, shouldStart]);
+
+    return count;
+  };
+
   const stats = [
-    { number: '95%', label: 'Placement Rate', icon: <TrendingUp className="h-6 w-6" /> },
-    { number: '$75K', label: 'Average Package', icon: <Award className="h-6 w-6" /> },
-    { number: '200+', label: 'Partner Companies', icon: <Building2 className="h-6 w-6" /> },
-    { number: '5000+', label: 'Alumni Placed', icon: <Users className="h-6 w-6" /> },
+    { number: 95, suffix: '%', label: 'Placement Rate', icon: <TrendingUp className="h-6 w-6" /> },
+    { number: 75, suffix: 'K', label: 'Average Package', icon: <Award className="h-6 w-6" />, prefix: '$' },
+    { number: 200, suffix: '+', label: 'Partner Companies', icon: <Building2 className="h-6 w-6" /> },
+    { number: 5000, suffix: '+', label: 'Alumni Placed', icon: <Users className="h-6 w-6" /> },
   ];
 
   const companies = [
@@ -119,35 +176,39 @@ const Placements = () => {
     <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Placement Excellence</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             95% placement rate with top-tier companies. Your dream job is just one course away.
           </p>
-          <Link
-            to="/contact"
+          <button
             className="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors inline-flex items-center"
           >
             Start Your Journey
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+          </button>
         </div>
       </section>
 
       {/* Placement Stats */}
-      <section className="py-16 bg-gray-900">
+      <section ref={statsRef} className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  {stat.icon}
+            {stats.map((stat, index) => {
+              const count = useCounter(stat.number, 2000, statsAnimated);
+              return (
+                <div key={index} className="text-center">
+                  <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                    {stat.icon}
+                  </div>
+                  <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
+                    {stat.prefix || ''}{count}{stat.suffix}
+                  </div>
+                  <div className="text-gray-400">{stat.label}</div>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{stat.number}</div>
-                <div className="text-gray-400">{stat.label}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -195,28 +256,28 @@ const Placements = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {successStories.map((story, index) => (
-              <div key={index} className="bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-2
-                    transition-all duration-200">
+              <div key={index} className="bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-400/20 hover:border-yellow-400/50 group
+                    transition-all duration-300 cursor-pointer">
                 <div className="flex items-start space-x-4 mb-6">
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-16 h-16 rounded-full object-cover"
+                    className="w-16 h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-200"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold">{story.name}</h3>
-                    <p className="text-yellow-400">{story.role}</p>
-                    <p className="text-gray-400 text-sm">{story.company} • {story.package}</p>
+                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors duration-200">{story.name}</h3>
+                    <p className="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-200">{story.role}</p>
+                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-200">{story.company} • {story.package}</p>
                   </div>
                   <div className="flex">
                     {[...Array(story.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-200" style={{transitionDelay: `${i * 50}ms`}} />
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-300 mb-4">"{story.story}"</p>
-                <div className="text-sm text-gray-400">
-                  Course: <span className="text-yellow-400">{story.course}</span>
+                <p className="text-gray-300 mb-4 group-hover:text-white transition-colors duration-200">"{story.story}"</p>
+                <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200">
+                  Course: <span className="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-200">{story.course}</span>
                 </div>
               </div>
             ))}
@@ -336,19 +397,17 @@ const Placements = () => {
             Join our next batch and become part of our successful alumni network.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
+            <button
               className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
             >
               Apply for Placement Support
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <Link
-              to="/courses"
+            </button>
+            <button
               className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors"
             >
               View Courses
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -357,64 +416,3 @@ const Placements = () => {
 };
 
 export default Placements;
-// import { placements } from '../data/placements';
-
-// const Placements = () => (
-//   <div className="p-8 bg--50">
-//     <h2 className="text-5xl font-bold mb-6 text-center">Placement Support</h2>
-
-//     <section className="mb-8 text-center">
-//       <h3 className="text-2xl font-semibold">Our Partners</h3>
-//       <div className="flex flex-wrap justify-center gap-4 mt-4">
-//         {placements.companies.map((co, i) => (
-//           <img key={(i)} src={co.logo} alt={co.name} className="h-15 opacity-80 hover:opacity-100 transition" />
-//         ))}
-//       </div>
-//     </section>
-
-//     <section className="mb-8 text-center">
-//       <div className="text-center mt-8">
-//         <h3 className="text-4xl font-bold">Placement Statistics</h3>
-//         <ul className="mt-4 space-y-2 text-2xl font-semibold gap-8">
-//           <li>Placement Rate: {placements.stats.placementRate}</li>
-//           <li>Highest Package: {placements.stats.highestPackage}</li>
-//           <li>Average Package: {placements.stats.averagePackage}</li>
-//           <li>Total Companies: {placements.stats.totalCompanies}+</li>
-//         </ul>
-//       </div>
-//     </section>
-
-//     <section className="">
-//       <h3 className="text-4xl font-bold mb-4 text-center">Success Stories</h3>
-//       {placements.testimonials.map((t, idx) => ( 
-//         <div className="bg-black shadow-lg rounded-2xl p-6 border hover:shadow-2xl transition duration-300">
-//           <div className="flex items-center justify-between mb-4">
-//             <h3 className="text-lg font-semibold">{idx+1}. {t.student}</h3>
-//             <img src={t.logo} alt={`${t.company} logo`} className="h-10 w-auto" />
-//           </div>
-//            <p className="text-gray-400 italic mb-4">"{t.message}"</p>
-//            <p className="text-sm text-gray-300">— {t.student}, {t.course}</p>
-//         </div>
-//       ))}
-//     </section>
-//   </div>
-// );
-
-// export default Placements;
-
-// import React from 'react';
-
-// const Testimonial = ({ student, course, company, message, logo }) => {
-//   return (
-//     <div className="bg-white shadow-lg rounded-2xl p-6 border hover:shadow-2xl transition duration-300">
-//       <div className="flex items-center justify-between mb-4">
-//         <h3 className="text-lg font-semibold">{student}</h3>
-//         <img src={logo} alt={`${company} logo`} className="h-8 w-auto" />
-//       </div>
-//       <p className="text-gray-700 italic mb-4">"{message}"</p>
-//       <p className="text-sm text-gray-500">— {student}, {course}</p>
-//     </div>
-//   );
-// };
-
-// export default Testimonial;

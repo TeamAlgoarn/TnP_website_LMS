@@ -85,7 +85,7 @@ const Contact = () => {
     <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">

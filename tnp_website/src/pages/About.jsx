@@ -1,7 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Target, Eye, Users, Award, Globe, Lightbulb } from 'lucide-react';
 
 const About = () => {
+  const [statsAnimated, setStatsAnimated] = useState(false);
+  const statsRef = useRef(null);
+
+  // Stats animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !statsAnimated) {
+          setStatsAnimated(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [statsAnimated]);
+
+  // Counter animation hook
+  const useCounter = (end, duration = 2000, shouldStart = false) => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      if (!shouldStart) return;
+
+      let startTime;
+      let animationFrame;
+
+      const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        
+        const currentCount = Math.floor(progress * end);
+        setCount(currentCount);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, [end, duration, shouldStart]);
+
+    return count;
+  };
+
   const values = [
     {
       icon: <Target className="h-8 w-8" />,
@@ -52,11 +111,18 @@ const About = () => {
     },
   ];
 
+  const stats = [
+    { number: 10, suffix: '+', label: 'Years of Excellence' },
+    { number: 50, suffix: '+', label: 'Expert Trainers' },
+    { number: 25, suffix: '+', label: 'Training Programs' },
+    { number: 15, suffix: '+', label: 'Global Locations' },
+  ];
+
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About CareerPro</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -180,7 +246,7 @@ const About = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-20">
+      <section ref={statsRef} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
@@ -189,22 +255,17 @@ const About = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">10+</div>
-              <div className="text-gray-400">Years of Excellence</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">50+</div>
-              <div className="text-gray-400">Expert Trainers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">25+</div>
-              <div className="text-gray-400">Training Programs</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">15+</div>
-              <div className="text-gray-400">Global Locations</div>
-            </div>
+            {stats.map((stat, index) => {
+              const count = useCounter(stat.number, 2000, statsAnimated);
+              return (
+                <div key={index} className="text-center">
+                  <div className="text-4xl font-bold text-yellow-400 mb-2">
+                    {count}{stat.suffix}
+                  </div>
+                  <div className="text-gray-400">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
