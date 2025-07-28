@@ -74,10 +74,11 @@ const CourseCard = ({ course }) => {
           {/* Buttons */}
           <div className="flex gap-3">
             <button className="flex-1 bg-yellow-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-full text-sm transition" 
-            onClick={() => navigate("../pages/contact")}>
+            onClick={() => navigate("/contact")}>
               Enroll Now
             </button>
-            <button className="flex-1 border border-gray-300 hover:border-blue-600 hover:text-blue-600 font-semibold px-4 py-2 rounded-full text-sm transition">
+            <button className="flex-1 border border-gray-300 hover:border-blue-600 hover:text-blue-600 font-semibold px-4 py-2 rounded-full text-sm transition"
+            onClick={() => navigate("/contact")}>
               Read More →
             </button>
           </div>
