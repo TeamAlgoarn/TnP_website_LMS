@@ -3,29 +3,50 @@ import { Target, Eye, Users, Award, Globe, Lightbulb } from 'lucide-react';
 
 const About = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
+  const [visibleSections, setVisibleSections] = useState(new Set());
   const statsRef = useRef(null);
+  const heroRef = useRef(null);
+  const missionRef = useRef(null);
+  const storyRef = useRef(null);
+  const valuesRef = useRef(null);
+  const teamRef = useRef(null);
 
-  // Stats animation observer
+  // Intersection Observer for animations
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !statsAnimated) {
-          setStatsAnimated(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionName = entry.target.getAttribute('data-section');
+          if (sectionName && !visibleSections.has(sectionName)) {
+            setVisibleSections(prev => new Set([...prev, sectionName]));
+            if (sectionName === 'stats' && !statsAnimated) {
+              setStatsAnimated(true);
+            }
+          }
+        }
+      });
+    }, observerOptions);
+
+    const sections = [heroRef, missionRef, storyRef, valuesRef, teamRef, statsRef];
+    sections.forEach(ref => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
 
     return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
+      sections.forEach(ref => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      });
     };
-  }, [statsAnimated]);
+  }, [visibleSections, statsAnimated]);
 
   // Counter animation hook
   const useCounter = (end, duration = 2000, shouldStart = false) => {
@@ -121,22 +142,40 @@ const About = () => {
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section 
+        ref={heroRef}
+        data-section="hero"
+        className={`relative py-20 bg-gradient-to-br from-black via-gray-900 to-black transition-all duration-1000 ${
+          visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About CareerPro</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-1000 delay-300 ${
+            visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>About CareerPro</h1>
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto transition-all duration-1000 delay-500 ${
+            visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             Empowering careers through world-class training and unparalleled placement support since 2015.
           </p>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
+      <section 
+        ref={missionRef}
+        data-section="mission"
+        className={`py-20 transition-all duration-1000 ${
+          visibleSections.has('mission') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-gray-900 p-8 rounded-lg hover:bg-gray-800 transition-colors hover:-translate-y-1
-                    transition-all duration-200">
+            <div className={`bg-gray-900 p-8 rounded-lg hover:bg-gray-800 transition-all duration-500 hover:-translate-y-1 ${
+              visibleSections.has('mission') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+            }`}
+            style={{ transitionDelay: '200ms' }}>
               <div className="flex items-center mb-6">
                 <Target className="h-8 w-8 text-yellow-400 mr-3" />
                 <h2 className="text-2xl font-bold">Our Mission</h2>
@@ -148,8 +187,10 @@ const About = () => {
                 and creating opportunities for professional growth.
               </p>
             </div>
-            <div className="bg-gray-900 p-8 rounded-lg hover:bg-gray-800 transition-colors hover:-translate-y-1
-                    transition-all duration-200">
+            <div className={`bg-gray-900 p-8 rounded-lg hover:bg-gray-800 transition-all duration-500 hover:-translate-y-1 ${
+              visibleSections.has('mission') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+            }`}
+            style={{ transitionDelay: '400ms' }}>
               <div className="flex items-center mb-6">
                 <Eye className="h-8 w-8 text-yellow-400 mr-3" />
                 <h2 className="text-2xl font-bold">Our Vision</h2>
@@ -166,11 +207,21 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-gray-900">
+      <section 
+        ref={storyRef}
+        data-section="story"
+        className={`py-20 bg-gray-900 transition-all duration-1000 ${
+          visibleSections.has('story') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
-            <div className="prose prose-lg prose-invert max-w-none">
+            <h2 className={`text-3xl md:text-4xl font-bold text-center mb-12 transition-all duration-1000 delay-200 ${
+              visibleSections.has('story') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>Our Story</h2>
+            <div className={`prose prose-lg prose-invert max-w-none transition-all duration-1000 delay-400 ${
+              visibleSections.has('story') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 Founded in 2015 by Dr. Sarah Williams, CareerPro began as a small training center 
                 with a big vision: to democratize access to quality technical education and career 
@@ -195,9 +246,17 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20">
+      <section 
+        ref={valuesRef}
+        data-section="values"
+        className={`py-20 transition-all duration-1000 ${
+          visibleSections.has('values') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            visibleSections.has('values') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               The principles that guide everything we do and shape our commitment to student success.
@@ -205,7 +264,13 @@ const About = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="text-center">
+              <div 
+                key={index} 
+                className={`text-center transition-all duration-1000 ${
+                  visibleSections.has('values') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+                }`}
+                style={{ transitionDelay: `${index * 150 + 300}ms` }}
+              >
                 <div className="bg-gray-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="text-yellow-400">{value.icon}</div>
                 </div>
@@ -218,9 +283,17 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-gray-900">
+      <section 
+        ref={teamRef}
+        data-section="team"
+        className={`py-20 bg-gray-900 transition-all duration-1000 ${
+          visibleSections.has('team') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            visibleSections.has('team') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Passionate professionals dedicated to your success and career growth.
@@ -228,7 +301,13 @@ const About = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="text-center">
+              <div 
+                key={index} 
+                className={`text-center transition-all duration-1000 ${
+                  visibleSections.has('team') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+                }`}
+                style={{ transitionDelay: `${index * 150 + 300}ms` }}
+              >
                 <div className="relative mb-6">
                   <img
                     src={member.image}
@@ -246,9 +325,17 @@ const About = () => {
       </section>
 
       {/* Stats */}
-      <section ref={statsRef} className="py-20">
+      <section 
+        ref={statsRef} 
+        data-section="stats"
+        className={`py-20 transition-all duration-1000 ${
+          visibleSections.has('stats') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            visibleSections.has('stats') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Numbers that reflect our commitment to excellence and student success.
@@ -258,7 +345,13 @@ const About = () => {
             {stats.map((stat, index) => {
               const count = useCounter(stat.number, 2000, statsAnimated);
               return (
-                <div key={index} className="text-center">
+                <div 
+                  key={index} 
+                  className={`text-center transition-all duration-1000 ${
+                    visibleSections.has('stats') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: `${index * 200 + 300}ms` }}
+                >
                   <div className="text-4xl font-bold text-yellow-400 mb-2">
                     {count}{stat.suffix}
                   </div>

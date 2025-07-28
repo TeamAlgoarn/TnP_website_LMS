@@ -323,54 +323,45 @@ import { courses } from "../data/courses";
 import CourseCard from "../components/CourseCard";
 
 const Courses = () => {
-
   const [selectedCategory, setSelectedCategory] = useState("Cloud Computing");
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [visibleCount, setVisibleCount] = useState();
   const containerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   const filteredCourses = courses.filter(
-   (course) => course.category === selectedCategory
+    (course) => course.category === selectedCategory
   );
 
-  useEffect(() => {
-    const calculateVisibleCount = () => {
-      if (!containerRef.current) return;
-
-      const containerWidth = containerRef.current.offsetWidth;
-      const approxButtonWidth = 90; // Approx width per button
-      const dropdownWidth = 50; // Width for ⋮ button
-      const availableWidth = containerWidth - dropdownWidth - 16;
-
-       // Calculate how many category buttons fit
-      const count = Math.floor(availableWidth / approxButtonWidth);
-      setVisibleCount(count > 0 ? count : 1);
-    };
-
-    calculateVisibleCount();
-    window.addEventListener("resize", calculateVisibleCount);
-    return () => window.removeEventListener("resize", calculateVisibleCount);
-  }, []);
-
-const dropdownRef = useRef(null);
-
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
+  // Scroll categories left/right
+  const scrollCategories = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -200 : 200;
+      scrollContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
     }
   };
 
-  if (isDropdownOpen) {
-    document.addEventListener("mousedown", handleClickOutside);
-  } else {
-    document.removeEventListener("mousedown", handleClickOutside);
-  }
+  const dropdownRef = useRef(null);
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, [isDropdownOpen]);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
   
   const certifications = [
     'Industry-recognized certifications',
@@ -382,19 +373,19 @@ useEffect(() => {
   ];
 
   const categories = [
-  "Cloud Computing",
-  "Data science & AI",
-  "DevOps",
-  "Programming Languages",
-  "Software Testing",
-  "Digital Marketing",
-  "Web Designing",
-  "Data Warehousing",
-  "Database Developer",
-  "Robotic Process Automation",
-  "Microsoft Training",
-  "Project Management",
-  "Other Training"
+    "Cloud Computing",
+    "Data science & AI",
+    "DevOps",
+    "Programming Languages",
+    "Software Testing",
+    "Digital Marketing",
+    "Web Designing",
+    "Data Warehousing",
+    "Database Developer",
+    "Robotic Process Automation",
+    "Microsoft Training",
+    "Project Management",
+    "Other Training"
   ];
   
   return (
@@ -445,60 +436,84 @@ useEffect(() => {
               Comprehensive training programs designed to meet industry demands and career goals.
             </p>
           </div>
-          {/* Top Navigation */}
-          <div ref={containerRef} className="flex sm:flex-row items-center justify-between gap-4 mb-8 relative">
-            <div className="flex overflow-hidden text-gray-400 font-medium flex-1 space-x-4 min-w-0 lg:gap-6">
-              {categories.slice(0,visibleCount).map((cat, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`whitespace-nowrap hover:text-blue-600 ${
-                    selectedCategory === cat ? "text-yellow-500" : ""
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-            {/* Dropdown */}
-            <div className="relative flex-shrink-0 ml-4" ref={dropdownRef}>
-              <button
-                onClick={() => setDropdownOpen(!isDropdownOpen)}
-                className="text-gray-400 hover:text-blue-600 font-bold text-2xl sm:text-3xl"
+          
+          {/* Top Navigation with Scroll */}
+          <div ref={containerRef} className="relative mb-8">
+            <div className="flex items-center">
+              {/* Left scroll button */}
+              <button 
+                onClick={() => scrollCategories('left')}
+                className="hidden md:block text-gray-400 hover:text-yellow-400 mr-2 p-2 rounded-full hover:bg-gray-800 transition-colors"
               >
-                ⋮
+                <ArrowRight className="h-5 w-5 rotate-180" />
               </button>
-              {isDropdownOpen && (
-                <div className="absolute bg-black right-0 mt-2 w-48 sm:w-56 border shadow-lg rounded-lg z-50">
-                  {categories.map((cat, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setSelectedCategory(cat);
-                        setDropdownOpen(false);
-                      }}
-                      // className="text-gray-300 block w-full text-left px-4 py-2 hover:bg-yellow-400 hover:text-black"
-                      className={`block w-full text-left px-4 py-2 ${
-                        selectedCategory === cat
-                          ? "bg-blue-600 text-gray-900 font-semibold"
-                          : "text-gray-300 hover:bg-yellow-400 hover:text-black"
-                      }`}
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
-              )}
+              
+              {/* Scrollable categories */}
+              <div 
+                ref={scrollContainerRef}
+                className="flex overflow-x-auto scrollbar-hide space-x-4 px-2 py-2 flex-1"
+              >
+                {categories.map((cat, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`whitespace-nowrap px-4 py-2 rounded-lg flex-shrink-0 ${
+                      selectedCategory === cat 
+                        ? "bg-yellow-500 text-black font-semibold" 
+                        : "text-gray-400 hover:text-blue-400 hover:bg-gray-800"
+                    } transition-colors`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Right scroll button */}
+              <button 
+                onClick={() => scrollCategories('right')}
+                className="hidden md:block text-gray-400 hover:text-yellow-400 ml-2 p-2 rounded-full hover:bg-gray-800 transition-colors"
+              >
+                <ArrowRight className="h-5 w-5" />
+              </button>
+              
+              {/* Dropdown for mobile */}
+              <div className="md:hidden relative flex-shrink-0 ml-2" ref={dropdownRef}>
+                <button
+                  onClick={() => setDropdownOpen(!isDropdownOpen)}
+                  className="text-gray-400 hover:text-blue-600 font-bold text-2xl p-2"
+                >
+                  ⋮
+                </button>
+                {isDropdownOpen && (
+                  <div className="absolute bg-black right-0 mt-2 w-48 border border-gray-700 shadow-lg rounded-lg z-50">
+                    {categories.map((cat, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          setSelectedCategory(cat);
+                          setDropdownOpen(false);
+                        }}
+                        className={`block w-full text-left px-4 py-2 ${
+                          selectedCategory === cat
+                            ? "bg-yellow-500 text-black font-semibold"
+                            : "text-gray-300 hover:bg-gray-700"
+                        }`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
           {/* Courses Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start relative">
             {filteredCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+              <CourseCard key={course.id} course={course} />
             ))}
           </div>
-
         </div>
       </section>
 

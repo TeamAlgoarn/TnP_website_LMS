@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Blog = () => {
+  const observerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+            entry.target.classList.remove('opacity-0', 'translate-y-8');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach((el) => observer.observe(el));
+
+    observerRef.current = observer;
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   const featuredPost = {
     id: 1,
     title: 'The Future of Tech Careers in 2025: What You Need to Know',
@@ -94,12 +123,61 @@ const Blog = () => {
 
   return (
     <div className="bg-black text-white">
+      <style jsx>{`
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.8s ease-out;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        
+        .hero-title {
+          animation: heroFadeIn 1.2s ease-out 0.3s both;
+        }
+        
+        .hero-subtitle {
+          animation: heroFadeIn 1.2s ease-out 0.6s both;
+        }
+        
+        @keyframes heroFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/261662/pexels-photo-261662.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Career & Tech Blog</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h1 className="hero-title text-4xl md:text-5xl font-bold mb-6 opacity-0">Career & Tech Blog</h1>
+          <p className="hero-subtitle text-xl text-gray-300 max-w-3xl mx-auto opacity-0">
             Expert insights, career advice, and industry trends to help you stay ahead in your tech journey.
           </p>
         </div>
@@ -108,10 +186,10 @@ const Blog = () => {
       {/* Featured Post */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
+          <div className="mb-8 animate-on-scroll">
             <h2 className="text-2xl font-bold text-yellow-400">Featured Article</h2>
           </div>
-          <div className="bg-gray-900 rounded-lg overflow-hidden">
+          <div className="bg-gray-900 rounded-lg overflow-hidden animate-on-scroll">
             <div className="md:flex">
               <div className="md:w-1/2">
                 <img
@@ -161,30 +239,34 @@ const Blog = () => {
           {/* Main Content */}
           <div className="lg:col-span-3">
             <section className="py-8">
-              <div className="mb-8">
+              <div className="mb-8 animate-on-scroll">
                 <h2 className="text-2xl font-bold">Latest Articles</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts.map((post) => (
-                  <article key={post.id} className="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors hover:-translate-y-2
-                    transition-all duration-200">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-48 object-cover"
-                    />
+                {blogPosts.map((post, index) => (
+                  <article 
+                    key={post.id} 
+                    className={`bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:-translate-y-2 animate-on-scroll stagger-${(index % 6) + 1}`}
+                  >
+                    <div className="overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    </div>
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">
-                        {post.tags.map((tag, index) => (
+                        {post.tags.map((tag, tagIndex) => (
                           <span
-                            key={index}
-                            className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs"
+                            key={tagIndex}
+                            className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs transition-all duration-300 hover:bg-yellow-400 hover:text-black"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <h3 className="text-lg font-semibold mb-3 line-clamp-2">{post.title}</h3>
+                      <h3 className="text-lg font-semibold mb-3 line-clamp-2 transition-colors duration-300 hover:text-yellow-400">{post.title}</h3>
                       <p className="text-gray-400 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
                       <div className="flex items-center justify-between text-xs text-gray-500">
                         <div className="flex items-center space-x-3">
@@ -199,9 +281,9 @@ const Blog = () => {
                         </div>
                         <span>{post.readTime}</span>
                       </div>
-                      <button className="w-full mt-4 bg-yellow-400 text-black py-2 px-4 rounded font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center">
+                      <button className="w-full mt-4 bg-yellow-400 text-black py-2 px-4 rounded font-semibold hover:bg-yellow-300 transition-all duration-300 flex items-center justify-center group">
                         Read Article
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </button>
                     </div>
                   </article>
@@ -214,14 +296,14 @@ const Blog = () => {
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-8">
               {/* Categories */}
-              <div className="bg-gray-900 p-6 rounded-lg">
+              <div className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-all duration-300 hover:-translate-y-2 animate-on-scroll">
                 <h3 className="text-lg font-semibold mb-4">Categories</h3>
                 <ul className="space-y-2">
                   {categories.map((category, index) => (
-                    <li key={index}>
-                      <button className="flex items-center justify-between w-full text-left text-gray-400 hover:text-yellow-400 transition-colors">
+                    <li key={index} className="transform transition-all duration-300 hover:translate-x-2">
+                      <button className="flex items-center justify-between w-full text-left text-gray-400 hover:text-yellow-400 transition-colors duration-300">
                         <span>{category.name}</span>
-                        <span className="text-xs bg-gray-700 px-2 py-1 rounded">{category.count}</span>
+                        <span className="text-xs bg-gray-700 px-2 py-1 rounded transition-colors duration-300 hover:bg-yellow-400 hover:text-black">{category.count}</span>
                       </button>
                     </li>
                   ))}
@@ -229,13 +311,13 @@ const Blog = () => {
               </div>
 
               {/* Popular Tags */}
-              <div className="bg-gray-900 p-6 rounded-lg">
+              <div className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-all duration-300 hover:-translate-y-2 animate-on-scroll">
                 <h3 className="text-lg font-semibold mb-4">Popular Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {popularTags.map((tag, index) => (
                     <button
                       key={index}
-                      className="bg-gray-700 text-gray-300 px-3 py-1 rounded text-sm hover:bg-yellow-400 hover:text-black transition-colors"
+                      className="bg-gray-700 text-gray-300 px-3 py-1 rounded text-sm hover:bg-yellow-400 hover:text-black transition-all duration-300 hover:scale-105"
                     >
                       {tag}
                     </button>
@@ -244,36 +326,36 @@ const Blog = () => {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 p-6 rounded-lg text-black">
+              <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 p-6 rounded-lg text-black hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll">
                 <h3 className="text-lg font-semibold mb-2">Stay Updated</h3>
                 <p className="text-sm mb-4">Get the latest career insights and tech trends delivered to your inbox.</p>
                 <div className="space-y-3">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-3 py-2 rounded border-0 text-black bg-gray-900 placeholder-gray-600"
+                    className="w-full px-3 py-2 rounded border-0 text-white bg-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-black focus:outline-none"
                   />
-                  <button className="w-full bg-black text-white py-2 px-4 rounded font-semibold hover:bg-gray-800 transition-colors">
+                  <button className="w-full bg-black text-white py-2 px-4 rounded font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105">
                     Subscribe
                   </button>
                 </div>
               </div>
 
               {/* Recent Comments */}
-              <div className="bg-gray-900 p-6 rounded-lg">
+              <div className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-all duration-300 hover:-translate-y-2 animate-on-scroll">
                 <h3 className="text-lg font-semibold mb-4">Recent Comments</h3>
                 <div className="space-y-4">
-                  <div className="text-sm">
+                  <div className="text-sm transition-all duration-300 hover:translate-x-2">
                     <p className="text-gray-400">John D. on</p>
-                    <p className="text-yellow-400">"Technical Interview Guide"</p>
+                    <p className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300">"Technical Interview Guide"</p>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm transition-all duration-300 hover:translate-x-2">
                     <p className="text-gray-400">Sarah M. on</p>
-                    <p className="text-yellow-400">"Data Science Career Path"</p>
+                    <p className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300">"Data Science Career Path"</p>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm transition-all duration-300 hover:translate-x-2">
                     <p className="text-gray-400">Mike R. on</p>
-                    <p className="text-yellow-400">"Building Your Portfolio"</p>
+                    <p className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300">"Building Your Portfolio"</p>
                   </div>
                 </div>
               </div>
@@ -284,25 +366,19 @@ const Blog = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Learning?</h2>
           <p className="text-xl text-gray-400 mb-8">
             Turn insights into action. Explore our courses and begin your journey today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/courses"
-              className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
-            >
+            <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-300 flex items-center justify-center group hover:scale-105">
               Explore Courses
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <Link
-              to="/contact"
-              className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors"
-            >
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+            <button className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300 hover:scale-105">
               Get Consultation
-            </Link>
+            </button>
           </div>
         </div>
       </section>
