@@ -328,6 +328,46 @@ const Courses = () => {
   const containerRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
+  // Generic intersection observer hook for scroll animations
+  const useScrollAnimation = (ref, threshold = 0.1, rootMargin = '0px 0px -50px 0px') => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { threshold, rootMargin }
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, [threshold, rootMargin]);
+
+    return isVisible;
+  };
+
+  // Refs for different sections
+  const heroRef = useRef(null);
+  const benefitsRef = useRef(null);
+  const processRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Animation states
+  const heroVisible = useScrollAnimation(heroRef, 0.3);
+  const benefitsVisible = useScrollAnimation(benefitsRef, 0.2);
+  const processVisible = useScrollAnimation(processRef, 0.2);
+  const ctaVisible = useScrollAnimation(ctaRef, 0.3);
+
   const filteredCourses = courses.filter(
     (course) => course.category === selectedCategory
   );
@@ -389,19 +429,37 @@ const Courses = () => {
   ];
   
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section ref={heroRef} className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg')] bg-cover bg-center opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Professional Training Courses</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+        <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
+          heroVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-12'
+        }`}>
+          <h1 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-1000 delay-200 ${
+            heroVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
+            Professional Training Courses
+          </h1>
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-8 transition-all duration-1000 delay-400 ${
+            heroVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             Industry-designed curriculum with hands-on projects, expert mentorship, and guaranteed job placement support.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
+            heroVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             <Link
               to="/contact"
-              className="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"
+              className="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/50"
             >
               Get Course Consultation
             </Link>
@@ -410,17 +468,31 @@ const Courses = () => {
       </section>
 
       {/* What You Get */}
-      <section className="py-16 bg-gray-900">
+      <section ref={benefitsRef} className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-1000 ${
+            benefitsVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
             <h2 className="text-3xl font-bold mb-4">What You Get</h2>
             <p className="text-gray-400">Every course includes these valuable benefits</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((feature, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-yellow-400 flex-shrink-0" />
-                <span className="text-gray-300">{feature}</span>
+              <div 
+                key={index} 
+                className={`flex items-center space-x-3 transition-all duration-700 hover:scale-105 hover:text-yellow-400 ${
+                  benefitsVisible 
+                    ? 'opacity-100 translate-x-0' 
+                    : 'opacity-0 -translate-x-8'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <CheckCircle className={`h-5 w-5 text-yellow-400 flex-shrink-0 transition-all duration-500 ${
+                  benefitsVisible ? 'scale-100 rotate-0' : 'scale-0 rotate-45'
+                }`} style={{ transitionDelay: `${index * 100 + 200}ms` }} />
+                <span className="text-gray-300 transition-colors duration-300 hover:text-white">{feature}</span>
               </div>
             ))}
           </div>
@@ -518,71 +590,99 @@ const Courses = () => {
       </section>
 
       {/* Learning Process */}
-      <section className="py-20 bg-gray-900">
+      <section ref={processRef} className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            processVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Learning Process</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               A proven methodology that ensures your success from day one to job placement.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                1
+            {[
+              { step: "1", title: "Assessment", description: "Skill evaluation and personalized learning path creation" },
+              { step: "2", title: "Training", description: "Hands-on learning with real projects and expert guidance" },
+              { step: "3", title: "Practice", description: "Industry projects and portfolio development" },
+              { step: "4", title: "Placement", description: "Job search support and interview preparation" }
+            ].map((process, index) => (
+              <div 
+                key={index}
+                className={`text-center transition-all duration-700 hover:-translate-y-4 hover:scale-110 ${
+                  processVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className={`bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg transition-all duration-500 hover:scale-125 hover:rotate-180 hover:shadow-lg hover:shadow-yellow-400/50 ${
+                  processVisible ? 'animate-pulse' : ''
+                }`} style={{ animationDelay: `${index * 200}ms`, animationDuration: '2s' }}>
+                  {process.step}
+                </div>
+                <h3 className="text-lg font-semibold mb-2 transition-colors duration-300 hover:text-yellow-400">{process.title}</h3>
+                <p className="text-gray-400 transition-colors duration-300 hover:text-gray-300">{process.description}</p>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Assessment</h3>
-              <p className="text-gray-400">Skill evaluation and personalized learning path creation</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                2
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Training</h3>
-              <p className="text-gray-400">Hands-on learning with real projects and expert guidance</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                3
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Practice</h3>
-              <p className="text-gray-400">Industry projects and portfolio development</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                4
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Placement</h3>
-              <p className="text-gray-400">Job search support and interview preparation</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Career?</h2>
-          <p className="text-xl text-gray-400 mb-8">
+      <section ref={ctaRef} className="py-20">
+        <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
+          ctaVisible 
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-0 translate-y-12 scale-95'
+        }`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-all duration-1000 delay-200 ${
+            ctaVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
+            Ready to Transform Your Career?
+          </h2>
+          <p className={`text-xl text-gray-400 mb-8 transition-all duration-1000 delay-400 ${
+            ctaVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             Join thousands of successful professionals who started their journey with our courses.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
+            ctaVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             <Link
               to="/contact"
-              className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
+              className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-500 flex items-center justify-center hover:scale-110 hover:shadow-xl hover:shadow-yellow-400/50"
             >
               Schedule Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
             </Link>
             <Link
               to="/placements"
-              className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors"
+              className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-yellow-400/30"
             >
               View Success Stories
             </Link>
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };

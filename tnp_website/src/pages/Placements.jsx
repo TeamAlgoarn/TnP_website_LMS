@@ -3,7 +3,52 @@ import { Building2, TrendingUp, Users, Award, Star, ArrowRight } from 'lucide-re
 
 const Placements = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
+  const [visibleSections, setVisibleSections] = useState(new Set());
   const statsRef = useRef(null);
+
+  // Generic intersection observer for scroll animations
+  const useScrollAnimation = (ref, threshold = 0.1) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { threshold }
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, [threshold]);
+
+    return isVisible;
+  };
+
+  // Refs for different sections
+  const heroRef = useRef(null);
+  const companiesRef = useRef(null);
+  const storiesRef = useRef(null);
+  const processRef = useRef(null);
+  const salaryRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Animation states
+  const heroVisible = useScrollAnimation(heroRef, 0.3);
+  const companiesVisible = useScrollAnimation(companiesRef, 0.2);
+  const storiesVisible = useScrollAnimation(storiesRef, 0.2);
+  const processVisible = useScrollAnimation(processRef, 0.2);
+  const salaryVisible = useScrollAnimation(salaryRef, 0.2);
+  const ctaVisible = useScrollAnimation(ctaRef, 0.3);
 
   // Stats animation observer
   useEffect(() => {
@@ -74,11 +119,7 @@ const Placements = () => {
       logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
       tier: 'Premium'
     },
-    {
-      name: "Amazon",
-      logo: "https://tse2.mm.bing.net/th/id/OIP.cs6rsE5Ogsa4Hm_2Y6hiPwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3https://seeklogo.com/vector-logo/286206/amazonhttps://images.seeklogo.com/logo-png/28/2/amazon-logo-png_seeklogo-286206.pnghttps://seeklogo.com/vector-logo/291390/amazon",
-      tier: 'Premium'
-    },
+
     {
       name: "TCS",
       logo: "https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service-1920x1144.png",
@@ -96,7 +137,7 @@ const Placements = () => {
     },
     {
         name: "Microsoft",
-        logo: "https://tse4.mm.bing.net/th/id/OIP.qbsTDbB9qKP6pBQ0Rl9bpQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
+        logo: "https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
         tier: 'Premium'
     },
   ];
@@ -173,17 +214,35 @@ const Placements = () => {
   ];
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+      <section ref={heroRef} className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg')] bg-cover bg-center opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Placement Excellence</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+        <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
+          heroVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-12'
+        }`}>
+          <h1 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-1000 delay-200 ${
+            heroVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
+            Placement Excellence
+          </h1>
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-8 transition-all duration-1000 delay-400 ${
+            heroVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             95% placement rate with top-tier companies. Your dream job is just one course away.
           </p>
           <button
-            className="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors inline-flex items-center"
+            className={`bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-500 inline-flex items-center hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/50 delay-600 ${
+              heroVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
           >
             Start Your Journey
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -198,8 +257,18 @@ const Placements = () => {
             {stats.map((stat, index) => {
               const count = useCounter(stat.number, 2000, statsAnimated);
               return (
-                <div key={index} className="text-center">
-                  <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div 
+                  key={index} 
+                  className={`text-center transition-all duration-700 ${
+                    statsAnimated 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-8 scale-95'
+                  }`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div className={`bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-500 hover:scale-110 hover:rotate-12 ${
+                    statsAnimated ? 'animate-bounce' : ''
+                  }`} style={{ animationDelay: `${index * 200}ms`, animationDuration: '1s', animationFillMode: 'both' }}>
                     {stat.icon}
                   </div>
                   <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
@@ -214,9 +283,13 @@ const Placements = () => {
       </section>
 
       {/* Partner Companies */}
-      <section className="py-20">
+      <section ref={companiesRef} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            companiesVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Partner Companies</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               We've built strong relationships with industry leaders to provide you with the best opportunities.
@@ -224,18 +297,25 @@ const Placements = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {companies.map((company, index) => (
-              <div key={index} className="bg-gray-900 p-6 rounded-lg text-center hover:bg-gray-800 transition-colors hover:-translate-y-2
-                    transition-all duration-200">
+              <div 
+                key={index} 
+                className={`bg-gray-900 p-6 rounded-lg text-center hover:bg-gray-800 transition-all duration-500 hover:-translate-y-4 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/20 hover:border hover:border-yellow-400/50 ${
+                  companiesVisible 
+                    ? 'opacity-100 translate-y-0 rotate-0' 
+                    : 'opacity-0 translate-y-8 rotate-3'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
                 <img
                     src={company.logo}
                     alt={company.name}
-                    className="w-20 h-20 mx-auto"
+                    className="w-20 h-20 mx-auto transition-transform duration-300 hover:scale-110"
                   />
-                <h3 className="font-semibold mb-1">{company.name}</h3>
-                <span className={`text-xs px-2 py-1 rounded ${
+                <h3 className="font-semibold mb-1 transition-colors duration-300 hover:text-yellow-400">{company.name}</h3>
+                <span className={`text-xs px-2 py-1 rounded transition-all duration-300 ${
                   company.tier === 'Premium' 
-                    ? 'bg-yellow-400 text-black' 
-                    : 'bg-gray-700 text-gray-300'
+                    ? 'bg-yellow-400 text-black hover:bg-yellow-300 hover:scale-105' 
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                 }`}>
                   {company.tier}
                 </span>
@@ -246,9 +326,13 @@ const Placements = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 bg-gray-900">
+      <section ref={storiesRef} className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            storiesVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Real stories from our alumni who transformed their careers and achieved their goals.
@@ -256,28 +340,35 @@ const Placements = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {successStories.map((story, index) => (
-              <div key={index} className="bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-400/20 hover:border-yellow-400/50 group
-                    transition-all duration-300 cursor-pointer">
+              <div 
+                key={index} 
+                className={`bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-4 hover:shadow-2xl hover:shadow-yellow-400/30 hover:border-yellow-400/70 group transition-all duration-500 cursor-pointer hover:scale-105 ${
+                  storiesVisible 
+                    ? 'opacity-100 translate-y-0 rotate-0' 
+                    : 'opacity-0 translate-y-12 -rotate-1'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
                 <div className="flex items-start space-x-4 mb-6">
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-16 h-16 rounded-full object-cover group-hover:scale-110 transition-transform duration-200"
+                    className="w-16 h-16 rounded-full object-cover group-hover:scale-125 transition-all duration-500 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-yellow-400/50"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors duration-200">{story.name}</h3>
-                    <p className="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-200">{story.role}</p>
-                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-200">{story.company} • {story.package}</p>
+                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-all duration-300 group-hover:scale-105">{story.name}</h3>
+                    <p className="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300">{story.role}</p>
+                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">{story.company} • {story.package}</p>
                   </div>
                   <div className="flex">
                     {[...Array(story.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-200" style={{transitionDelay: `${i * 50}ms`}} />
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current group-hover:scale-125 transition-all duration-300 group-hover:rotate-12" style={{transitionDelay: `${i * 100}ms`}} />
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-300 mb-4 group-hover:text-white transition-colors duration-200">"{story.story}"</p>
-                <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-200">
-                  Course: <span className="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-200">{story.course}</span>
+                <p className="text-gray-300 mb-4 group-hover:text-white transition-colors duration-300">"{story.story}"</p>
+                <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Course: <span className="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300 group-hover:font-semibold">{story.course}</span>
                 </div>
               </div>
             ))}
@@ -286,9 +377,13 @@ const Placements = () => {
       </section>
 
       {/* Placement Process */}
-      <section className="py-20">
+      <section ref={processRef} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            processVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Placement Process</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               A systematic approach to ensure you're fully prepared for your dream job.
@@ -296,13 +391,22 @@ const Placements = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {placementProcess.map((process, index) => (
-              <div key={index} className="text-center hover:-translate-y-2
-                    transition-all duration-200">
-                <div className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
+              <div 
+                key={index} 
+                className={`text-center hover:-translate-y-4 transition-all duration-500 hover:scale-110 ${
+                  processVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className={`bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg transition-all duration-500 hover:scale-125 hover:rotate-180 hover:shadow-lg hover:shadow-yellow-400/50 ${
+                  processVisible ? 'animate-pulse' : ''
+                }`} style={{ animationDelay: `${index * 200}ms`, animationDuration: '2s' }}>
                   {process.step}
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{process.title}</h3>
-                <p className="text-gray-400 text-sm">{process.description}</p>
+                <h3 className="text-lg font-semibold mb-3 transition-colors duration-300 hover:text-yellow-400">{process.title}</h3>
+                <p className="text-gray-400 text-sm transition-colors duration-300 hover:text-gray-300">{process.description}</p>
               </div>
             ))}
           </div>
@@ -310,101 +414,112 @@ const Placements = () => {
       </section>
 
       {/* Salary Ranges */}
-      <section className="py-20 bg-gray-900">
+      <section ref={salaryRef} className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            salaryVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Salary Ranges by Role</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Average salary packages our alumni receive across different roles and experience levels.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-2
-                    transition-all duration-200">
-              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Entry Level (0-2 years)</h3>
-              <ul className="space-y-3">
-                <li className="flex justify-between">
-                  <span>Software Developer</span>
-                  <span className="font-semibold">$60K - $80K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Data Analyst</span>
-                  <span className="font-semibold">$55K - $75K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>UI/UX Designer</span>
-                  <span className="font-semibold">$50K - $70K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Cloud Associate</span>
-                  <span className="font-semibold">$65K - $85K</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-2
-                    transition-all duration-200">
-              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Mid Level (2-5 years)</h3>
-              <ul className="space-y-3">
-                <li className="flex justify-between">
-                  <span>Senior Developer</span>
-                  <span className="font-semibold">$90K - $120K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Data Scientist</span>
-                  <span className="font-semibold">$100K - $130K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Product Designer</span>
-                  <span className="font-semibold">$85K - $115K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>DevOps Engineer</span>
-                  <span className="font-semibold">$95K - $125K</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-2
-                    transition-all duration-200">
-              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Senior Level (5+ years)</h3>
-              <ul className="space-y-3">
-                <li className="flex justify-between">
-                  <span>Tech Lead</span>
-                  <span className="font-semibold">$140K - $180K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Principal Engineer</span>
-                  <span className="font-semibold">$160K - $220K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Design Director</span>
-                  <span className="font-semibold">$130K - $170K</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Solutions Architect</span>
-                  <span className="font-semibold">$150K - $200K</span>
-                </li>
-              </ul>
-            </div>
+            {[
+              {
+                title: 'Entry Level (0-2 years)',
+                roles: [
+                  { name: 'Software Developer', range: '$60K - $80K' },
+                  { name: 'Data Analyst', range: '$55K - $75K' },
+                  { name: 'UI/UX Designer', range: '$50K - $70K' },
+                  { name: 'Cloud Associate', range: '$65K - $85K' }
+                ]
+              },
+              {
+                title: 'Mid Level (2-5 years)',
+                roles: [
+                  { name: 'Senior Developer', range: '$90K - $120K' },
+                  { name: 'Data Scientist', range: '$100K - $130K' },
+                  { name: 'Product Designer', range: '$85K - $115K' },
+                  { name: 'DevOps Engineer', range: '$95K - $125K' }
+                ]
+              },
+              {
+                title: 'Senior Level (5+ years)',
+                roles: [
+                  { name: 'Tech Lead', range: '$140K - $180K' },
+                  { name: 'Principal Engineer', range: '$160K - $220K' },
+                  { name: 'Design Director', range: '$130K - $170K' },
+                  { name: 'Solutions Architect', range: '$150K - $200K' }
+                ]
+              }
+            ].map((level, index) => (
+              <div 
+                key={index} 
+                className={`bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-4 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/20 hover:border-yellow-400/50 ${
+                  salaryVisible 
+                    ? 'opacity-100 translate-y-0 rotate-0' 
+                    : 'opacity-0 translate-y-12 rotate-1'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <h3 className="text-xl font-semibold mb-4 text-yellow-400 transition-all duration-300 hover:scale-105">{level.title}</h3>
+                <ul className="space-y-3">
+                  {level.roles.map((role, roleIndex) => (
+                    <li 
+                      key={roleIndex} 
+                      className={`flex justify-between transition-all duration-300 hover:text-yellow-400 hover:scale-105 ${
+                        salaryVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+                      }`}
+                      style={{ transitionDelay: `${(index * 200) + (roleIndex * 100)}ms` }}
+                    >
+                      <span>{role.name}</span>
+                      <span className="font-semibold">{role.range}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Launch Your Career?</h2>
-          <p className="text-xl text-gray-400 mb-8">
+      <section ref={ctaRef} className="py-20">
+        <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
+          ctaVisible 
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-0 translate-y-12 scale-95'
+        }`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-all duration-1000 delay-200 ${
+            ctaVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
+            Ready to Launch Your Career?
+          </h2>
+          <p className={`text-xl text-gray-400 mb-8 transition-all duration-1000 delay-400 ${
+            ctaVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             Join our next batch and become part of our successful alumni network.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
+            ctaVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
             <button
-              className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
+              className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-500 flex items-center justify-center hover:scale-110 hover:shadow-xl hover:shadow-yellow-400/50"
             >
               Apply for Placement Support
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
             </button>
             <button
-              className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors"
+              className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-yellow-400/30"
             >
               View Courses
             </button>

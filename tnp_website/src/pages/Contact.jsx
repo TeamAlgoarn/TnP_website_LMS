@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
@@ -10,6 +10,37 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Animation state
+  const [visibleElements, setVisibleElements] = useState(new Set());
+  const observerRef = useRef(null);
+
+  // Initialize Intersection Observer
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleElements(prev => new Set([...prev, entry.target.dataset.animateId]));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    // Observe all elements with animation IDs
+    const elementsToObserve = document.querySelectorAll('[data-animate-id]');
+    elementsToObserve.forEach(el => observerRef.current.observe(el));
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,16 +112,36 @@ const Contact = () => {
     },
   ];
 
+  // Animation helper function
+  const getAnimationClass = (animationId, baseClass = '') => {
+    const isVisible = visibleElements.has(animationId);
+    return `${baseClass} transition-all duration-700 ease-out ${
+      isVisible 
+        ? 'opacity-100 translate-y-0 translate-x-0 scale-100' 
+        : 'opacity-0 translate-y-8 scale-95'
+    }`;
+  };
+
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg')] bg-cover bg-center opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your career? Let's discuss how we can help you achieve your goals.
-          </p>
+          <div 
+            data-animate-id="hero-title"
+            className={getAnimationClass('hero-title')}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
+          </div>
+          <div 
+            data-animate-id="hero-subtitle"
+            className={getAnimationClass('hero-subtitle', 'delay-200')}
+          >
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Ready to transform your career? Let's discuss how we can help you achieve your goals.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -99,7 +150,10 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-gray-900 p-8 rounded-lg">
+            <div 
+              data-animate-id="contact-form"
+              className={getAnimationClass('contact-form', 'bg-gray-900 p-8 rounded-lg')}
+            >
               <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
               {isSubmitted ? (
                 <div className="text-center py-8">
@@ -108,7 +162,7 @@ const Contact = () => {
                   <p className="text-gray-400">We'll get back to you within 24 hours.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -191,42 +245,54 @@ const Contact = () => {
                       placeholder="Tell us about your goals and how we can help..."
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-yellow-400 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
+                  <div
+                    onClick={handleSubmit}
+                    className="w-full bg-yellow-400 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center cursor-pointer"
                   >
                     Send Message
                     <Send className="ml-2 h-5 w-5" />
-                  </button>
-                </form>
+                  </div>
+                </div>
               )}
             </div>
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <div>
+              <div 
+                data-animate-id="contact-info-title"
+                className={getAnimationClass('contact-info-title')}
+              >
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="bg-gray-900 p-6 rounded-lg hover:-translate-y-2
-                    transition-all duration-200">
-                      <div className="flex items-center mb-4">
-                        <div className="text-yellow-400 mr-3">{info.icon}</div>
-                        <h3 className="font-semibold">{info.title}</h3>
-                      </div>
-                      <div className="space-y-1">
-                        {info.details.map((detail, i) => (
-                          <p key={i} className="text-gray-300">{detail}</p>
-                        ))}
-                        <p className="text-gray-400 text-sm">{info.subtitle}</p>
-                      </div>
+              </div>
+              <div 
+                data-animate-id="contact-info-grid"
+                className={getAnimationClass('contact-info-grid', 'grid grid-cols-1 sm:grid-cols-2 gap-6 delay-300')}
+              >
+                {contactInfo.map((info, index) => (
+                  <div 
+                    key={index} 
+                    data-animate-id={`contact-card-${index}`}
+                    className={getAnimationClass(`contact-card-${index}`, `bg-gray-900 p-6 rounded-lg hover:-translate-y-2 transition-all duration-200 delay-${(index + 1) * 100}`)}
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="text-yellow-400 mr-3">{info.icon}</div>
+                      <h3 className="font-semibold">{info.title}</h3>
                     </div>
-                  ))}
-                </div>
+                    <div className="space-y-1">
+                      {info.details.map((detail, i) => (
+                        <p key={i} className="text-gray-300">{detail}</p>
+                      ))}
+                      <p className="text-gray-400 text-sm">{info.subtitle}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Map Placeholder */}
-              <div className="bg-gray-900 p-6 rounded-lg">
+              <div 
+                data-animate-id="map-section"
+                className={getAnimationClass('map-section', 'bg-gray-900 p-6 rounded-lg delay-500')}
+              >
                 <h3 className="font-semibold mb-4">Find Us</h3>
                 <div className="bg-gray-800 h-64 rounded-lg flex items-center justify-center">
                   <div className="text-center">
@@ -244,7 +310,10 @@ const Contact = () => {
       {/* FAQ Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div 
+            data-animate-id="faq-header"
+            className={getAnimationClass('faq-header', 'text-center mb-16')}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-400">
               Quick answers to common questions about our programs and services.
@@ -252,7 +321,11 @@ const Contact = () => {
           </div>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-black p-6 rounded-lg border border-gray-800">
+              <div 
+                key={index} 
+                data-animate-id={`faq-${index}`}
+                className={getAnimationClass(`faq-${index}`, `bg-black p-6 rounded-lg border border-gray-800 delay-${index * 100}`)}
+              >
                 <h3 className="text-lg font-semibold mb-3 text-yellow-400">{faq.question}</h3>
                 <p className="text-gray-300">{faq.answer}</p>
               </div>
@@ -265,8 +338,10 @@ const Contact = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2
-                    transition-all duration-200">
+            <div 
+              data-animate-id="office-hours"
+              className={getAnimationClass('office-hours', 'bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2 transition-all duration-200')}
+            >
               <Clock className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">Office Hours</h3>
               <div className="space-y-2 text-gray-300">
@@ -276,8 +351,10 @@ const Contact = () => {
               </div>
               <p className="text-yellow-400 mt-4">Walk-ins welcome during office hours</p>
             </div>
-            <div className="bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2
-                    transition-all duration-200">
+            <div 
+              data-animate-id="student-support"
+              className={getAnimationClass('student-support', 'bg-gray-900 p-8 rounded-lg text-center hover:-translate-y-2 transition-all duration-200 delay-200')}
+            >
               <Phone className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">24/7 Student Support</h3>
               <div className="space-y-2 text-gray-300">
