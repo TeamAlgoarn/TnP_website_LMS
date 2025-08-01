@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import  ContactPage  from '../components/ContactPage';
 import { ArrowRight, Users, Award, TrendingUp, Star, CheckCircle, X, User, Mail, Lock, Phone, Send } from 'lucide-react';
 
 const Home = () => {
@@ -276,89 +277,12 @@ const Home = () => {
                   </button>
                 </div>
               ) : (
-                /* Contact Form */
-                <>
-                  {isSubmitted ? (
-                    <div className="text-center py-8">
-                      <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-green-400 mb-2">Message Sent!</h3>
-                      <p className="text-gray-400">We'll get back to you within 24 hours.</p>
+                  /* Contact Form */
+                  <div className=" inset-0 flex ">
+                    <div className="bg-gray-900 text-white w-full max-w-3xl rounded-lg shadow-lg p-4 max-h-[50vh] overflow-y-auto ">
+                      <ContactPage />
                     </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400"
-                          placeholder="Full Name *"
-                        />
-                      </div>
-                      
-                      <div>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400"
-                          placeholder="Email Address *"
-                        />
-                      </div>
-
-                      <div>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400"
-                          placeholder="Phone Number"
-                        />
-                      </div>
-
-                      <div>
-                        <select
-                          name="course"
-                          value={formData.course}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
-                        >
-                          <option value="">Select a course</option>
-                          <option value="full-stack">Full Stack Web Development</option>
-                          <option value="data-science">Data Science & Analytics</option>
-                          <option value="cloud-devops">Cloud Computing & DevOps</option>
-                          <option value="mobile-dev">Mobile App Development</option>
-                          <option value="cybersecurity">Cybersecurity Specialist</option>
-                          <option value="ui-ux">UI/UX Design</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <textarea
-                          name="message"
-                          rows={3}
-                          value={formData.message}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 resize-none"
-                          placeholder="Tell us about your goals and how we can help..."
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        className="w-full bg-yellow-400 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
-                      >
-                        Send Message
-                        <Send className="ml-2 h-5 w-5" />
-                      </button>
-                    </form>
-                  )}
-                </>
+                  </div>
               )}
             </div>
           </div>
@@ -551,7 +475,7 @@ const Home = () => {
         </div>
       </section>
 
-      <style jsx>{`
+      <style jsx="true">{`
         @keyframes fadeIn {
           from {
             opacity: 0;
