@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Star, ArrowRight } from 'lucide-react';
 
 const Placements = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
   const statsRef = useRef(null);
+  const navigate = useNavigate();
 
   // Generic intersection observer for scroll animations
   const useScrollAnimation = (ref, threshold = 0.1) => {
@@ -104,6 +106,19 @@ const Placements = () => {
     }, [end, duration, shouldStart]);
 
     return count;
+  };
+
+  // Navigation handlers
+  const handleStartJourney = () => {
+    navigate('/login');
+  };
+
+  const handleApplyPlacementSupport = () => {
+    navigate('/contact');
+  };
+
+  const handleViewCourses = () => {
+    navigate('/courses');
   };
 
   const stats = [
@@ -238,6 +253,7 @@ const Placements = () => {
             95% placement rate with top-tier companies. Your dream job is just one course away.
           </p>
           <button
+            onClick={handleStartJourney}
             className={`bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-500 inline-flex items-center hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/50 delay-600 ${
               heroVisible 
                 ? 'opacity-100 translate-y-0' 
@@ -513,12 +529,14 @@ const Placements = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             <button
+              onClick={handleApplyPlacementSupport}
               className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-all duration-500 flex items-center justify-center hover:scale-110 hover:shadow-xl hover:shadow-yellow-400/50"
             >
               Apply for Placement Support
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-2" />
             </button>
             <button
+              onClick={handleViewCourses}
               className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-yellow-400/30"
             >
               View Courses

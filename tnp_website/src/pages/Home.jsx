@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import  ContactPage  from '../components/ContactPage';
 import { ArrowRight, Users, Award, TrendingUp, Star, CheckCircle, X, User, Mail, Lock, Phone, Send } from 'lucide-react';
 
@@ -20,6 +21,7 @@ const Home = () => {
   const servicesRef = useRef(null);
   const testimonialsRef = useRef(null);
   const ctaRef = useRef(null);
+  const navigate = useNavigate();
 
   // Show modal after 3-4 seconds
   useEffect(() => {
@@ -195,6 +197,23 @@ const Home = () => {
     closeModal();
   };
 
+  // Navigation handlers
+  const handleExploreCourses = () => {
+    navigate('/courses');
+  };
+
+  const handleGetStarted = () => {
+    navigate('/login');
+  };
+
+  const handleContactUs = () => {
+    navigate('/contact');
+  };
+
+  const handleViewPlacements = () => {
+    navigate('/placements');
+  };
+
   return (
     <div className="bg-black text-white">
       {/* Modal Popup */}
@@ -318,12 +337,14 @@ const Home = () => {
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button
+              onClick={handleExploreCourses}
               className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center min-w-fit"
             >
               Explore Courses
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
             <button
+              onClick={handleGetStarted}
               className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-colors min-w-fit"
             >
               Get Started Today
@@ -461,12 +482,14 @@ const Home = () => {
             visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <button
+              onClick={handleContactUs}
               className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
             >
               Contact Us Today
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
             <button
+              onClick={handleViewPlacements}
               className="border-2 border-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-colors"
             >
               View Placements
