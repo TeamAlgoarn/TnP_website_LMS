@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
+import VideoCall from './VideoCall';
 
 const ContactPage = () => {
 
@@ -13,6 +14,10 @@ const ContactPage = () => {
         const [errors, setErrors] = useState({});
         const [isSubmitted, setIsSubmitted] = useState(false);
         const [isLoading, setIsLoading] = useState(false);
+
+        const [mode, setMode] = useState('select'); // 'text' or 'video'
+        const [roomName] = useState(`ContactSupport-${Math.random().toString(36).substr(2, 9)}`);
+        // const [userName] = useState(formData.name)
         
         // Validation rules
         const validate = (name, value) => {
@@ -66,7 +71,7 @@ const ContactPage = () => {
                 body: JSON.stringify(formData),
             });
             
-                    if (response.ok) {
+              if (response.ok) {
                 setIsSubmitted(true);
                 setFormData({
                 name: "",
@@ -142,6 +147,52 @@ const ContactPage = () => {
                       placeholder="Enter your phone number"
                     />
                     {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+                  </div>
+
+                  {/* Select Communication Mode */}
+                  <div className="p-4">
+                    {/* Dropdown */}
+                    <div className="mb-4">
+                      <label htmlFor="contact-mode" className="block text-sm font-medium mb-2 text-yellow-400 border-gray-600">
+                        Select Communication Mode:
+                      </label>
+                      <select
+                        id="contact-mode"
+                        value={mode}
+                        onChange={(e) => setMode(e.target.value)}
+                        className="w-full px-4 py-3 bg-black border rounded-lg focus:ring-2 focus:ring-yellow-400"
+                      >
+                        <option value="select" >Select mode</option>
+                        <option value="text">Text Chat</option>
+                        <option value="video">Start Video Call</option>
+                      </select>
+                    </div>
+
+                    {/* Conditional Rendering */}
+                    {mode === 'select' && (
+                      <div className="text-gray-400 text-center mt-4">
+                        Select a mode for conversation.
+                      </div>
+                    )}
+
+                    {mode === 'text' && (
+                      <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg max-h-[50vh] overflow-y-auto">
+                        {/* Text Chat UI */}
+                        <h3 className="text-xl font-bold mb-4 text-yellow-400">Chat with us</h3>
+                        <p className="text-gray-200">Text conversation below.</p>
+                        <textarea
+                          placeholder="Type your message..."
+                          className="w-full p-1 bg-black border border-gray-600 rounded-lg mt-2 text-white"
+                        ></textarea>
+                        <button className="mt-4 bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300">
+                          Send
+                        </button>
+                      </div>
+                    )}
+
+                    {mode === 'video' && (
+                      <VideoCall roomName={roomName} userName={formData.name} />
+                    )}
                   </div>
 
                   {/* Message */}
