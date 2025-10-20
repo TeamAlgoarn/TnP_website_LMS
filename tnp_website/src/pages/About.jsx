@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Target, Eye, Users, Award, Globe, Lightbulb } from 'lucide-react';
+import aboutImage from '../assets/images/About/about1.jpeg';
 
 const About = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
@@ -96,47 +97,29 @@ const About = () => {
     {
       icon: <Lightbulb className="h-8 w-8" />,
       title: 'Innovation',
-      description: 'We continuously innovate our teaching methods and curriculum to stay ahead.',
+      description: 'We continuously innovate our teaching methods and curriculum to stay ahead of industry trends.',
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: 'Global Impact',
-      description: 'Creating opportunities that connect local talent with global career possibilities.',
+      title: 'Industry Connect',
+      description: 'Creating opportunities that connect Indian talent with top companies and global career possibilities.',
     },
   ];
 
   const team = [
     {
-      name: 'Dr. Sarah Williams',
+      name: 'Anand B',
       role: 'Founder & CEO',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg',
-      bio: '15+ years in education technology and career development.',
-    },
-    {
-      name: 'Michael Johnson',
-      role: 'Head of Training',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
-      bio: 'Former Google engineer with expertise in modern software development.',
-    },
-    {
-      name: 'Emily Chen',
-      role: 'Placement Director',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg',
-      bio: 'Connected 1000+ students with top-tier companies worldwide.',
-    },
-    {
-      name: 'David Rodriguez',
-      role: 'Industry Relations',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      bio: 'Building bridges between academia and industry for mutual success.',
-    },
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      bio: 'Visionary entrepreneur with 15+ years in education technology and career development across India.',
+    }
   ];
 
   const stats = [
-    { number: 10, suffix: '+', label: 'Years of Excellence' },
-    { number: 50, suffix: '+', label: 'Expert Trainers' },
-    { number: 25, suffix: '+', label: 'Training Programs' },
-    { number: 15, suffix: '+', label: 'Global Locations' },
+    { number: 850, suffix: '+', label: 'Professionals Trained' },
+    { number: 78, suffix: '%', label: 'Placement Success' },
+    { number: 120, suffix: '+', label: 'Partner Companies' },
+    { number: 8, suffix: '+', label: 'Years of Excellence' },
   ];
 
   return (
@@ -149,7 +132,10 @@ const About = () => {
           visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${aboutImage})` }}
+        ></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-1000 delay-300 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -157,7 +143,7 @@ const About = () => {
           <p className={`text-xl text-gray-300 max-w-3xl mx-auto transition-all duration-1000 delay-500 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Empowering careers through world-class training and unparalleled placement support since 2015.
+            Empowering Indian professionals through industry-led training and unparalleled placement support since 2016.
           </p>
         </div>
       </section>
@@ -181,10 +167,10 @@ const About = () => {
                 <h2 className="text-2xl font-bold">Our Mission</h2>
               </div>
               <p className="text-gray-300 text-lg leading-relaxed">
-                To bridge the gap between academic learning and industry requirements by providing 
-                comprehensive training programs that prepare students for successful careers in 
-                technology and beyond. We are committed to transforming lives through education 
-                and creating opportunities for professional growth.
+                To bridge the skill gap between academic learning and industry requirements by providing 
+                comprehensive NAPS-certified training programs that prepare Indian professionals for successful careers in 
+                technology and emerging sectors. We are committed to transforming lives through quality education 
+                and creating opportunities for professional growth across India.
               </p>
             </div>
             <div className={`bg-gray-900 p-8 rounded-lg hover:bg-gray-800 transition-all duration-500 hover:-translate-y-1 ${
@@ -196,10 +182,9 @@ const About = () => {
                 <h2 className="text-2xl font-bold">Our Vision</h2>
               </div>
               <p className="text-gray-300 text-lg leading-relaxed">
-                To become the global leader in career transformation by creating a world where 
-                every individual has access to quality training and meaningful employment 
-                opportunities. We envision a future where skills meet opportunities seamlessly, 
-                driving innovation and economic growth worldwide.
+                To become India's leading career transformation platform by creating opportunities where 
+                every individual has access to quality training and meaningful employment. We envision a future where 
+                Indian talent meets global opportunities seamlessly, driving innovation and economic growth nationwide.
               </p>
             </div>
           </div>
@@ -223,22 +208,22 @@ const About = () => {
               visibleSections.has('story') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Founded in 2015 by Dr. Sarah Williams, CareerPro began as a small training center 
-                with a big vision: to democratize access to quality technical education and career 
-                opportunities. Starting with just 20 students and a single classroom, we've grown 
-                into a leading training and placement center.
+                Founded in 2016 by Anand B, CareerPro began as a visionary initiative to address the growing 
+                skill gap in India's rapidly evolving job market. Starting with a small team and a big vision 
+                to democratize access to quality technical education, we've grown into a leading training and 
+                placement center serving professionals across India.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Our journey has been marked by continuous innovation in curriculum design, 
-                teaching methodologies, and industry partnerships. We've adapted to changing 
-                market demands, emerging technologies, and evolving career landscapes to ensure 
-                our students are always ahead of the curve.
+                Our journey has been marked by strategic partnerships with top Indian IT companies like 
+                Infosys, Wipro, and TCS, and continuous innovation in curriculum design focused on emerging 
+                technologies. We've adapted to India's unique market demands to ensure our students are always 
+                industry-ready.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Today, we're proud to have trained over 5,000 students, maintained a 95% 
-                placement rate, and built partnerships with 200+ companies worldwide. Our 
-                success is measured not just in numbers, but in the transformed lives and 
-                successful careers of our alumni.
+                Today, we're proud to have trained over 850+ Indian professionals, maintained a 78% 
+                placement rate, and built partnerships with 120+ companies across India and globally. Our 
+                success is measured in the transformed lives and successful careers of our alumni who are 
+                now leading innovation in top Indian and multinational companies.
               </p>
             </div>
           </div>
@@ -259,7 +244,7 @@ const About = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              The principles that guide everything we do and shape our commitment to student success.
+              The principles that guide everything we do and shape our commitment to student success in the Indian context.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -294,32 +279,32 @@ const About = () => {
           <div className={`text-center mb-16 transition-all duration-1000 ${
             visibleSections.has('team') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Passionate professionals dedicated to your success and career growth.
+              Visionary leadership dedicated to transforming careers across India.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div 
-                key={index} 
-                className={`text-center transition-all duration-1000 ${
-                  visibleSections.has('team') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
-                }`}
-                style={{ transitionDelay: `${index * 150 + 300}ms` }}
-              >
-                <div className="relative mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-yellow-400"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-yellow-400 mb-3">{member.role}</p>
-                <p className="text-gray-400 text-sm">{member.bio}</p>
+          <div className="flex justify-center">
+            <div 
+              className={`text-center transition-all duration-1000 ${
+                visibleSections.has('team') ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              <div className="relative mb-6">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                  alt="Anand B"
+                  className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-yellow-400"
+                />
               </div>
-            ))}
+              <h3 className="text-xl font-semibold mb-2">Anand B</h3>
+              <p className="text-yellow-400 mb-3">Founder & CEO</p>
+              <p className="text-gray-400 text-sm max-w-xs">
+                Visionary entrepreneur with 15+ years in education technology and career development across India. 
+                Passionate about bridging the skill gap and creating opportunities for Indian professionals.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -338,7 +323,7 @@ const About = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Numbers that reflect our commitment to excellence and student success.
+              Numbers that reflect our commitment to excellence and student success across India.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

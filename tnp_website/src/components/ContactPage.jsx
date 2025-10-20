@@ -16,7 +16,7 @@ const ContactPage = () => {
         const [isLoading, setIsLoading] = useState(false);
 
         const [mode, setMode] = useState('select'); // 'text' or 'video'
-        const [roomName] = useState(`ContactSupport-${Math.random().toString(36).substr(2, 9)}`);
+        const [roomName] = useState(`CareerProSupport-${Math.random().toString(36).substr(2, 9)}`);
         // const [userName] = useState(formData.name)
         
         // Validation rules
@@ -96,8 +96,8 @@ const ContactPage = () => {
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-green-400 mb-2">Message Sent!</h3>
-                  <p className="text-gray-400">We'll get back to you soon.</p>
+                  <h3 className="text-xl font-semibold text-green-400 mb-2">Message Sent Successfully!</h3>
+                  <p className="text-gray-400">Our CareerPro team will contact you within 2 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -144,7 +144,7 @@ const ContactPage = () => {
                       className={`w-full px-4 py-3 bg-black border rounded-lg focus:ring-2 focus:ring-yellow-400 ${
                         errors.phone ? "border-red-500" : "border-gray-600"
                       }`}
-                      placeholder="Enter your phone number"
+                      placeholder="Enter your 10-digit number"
                     />
                     {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                   </div>
@@ -163,29 +163,29 @@ const ContactPage = () => {
                         className="w-full px-4 py-3 bg-black border rounded-lg focus:ring-2 focus:ring-yellow-400"
                       >
                         <option value="select" >Select mode</option>
-                        <option value="text">Text Chat</option>
-                        <option value="video">Start Video Call</option>
+                        <option value="text">Text Chat with Career Advisor</option>
+                        <option value="video">Start Video Call with Career Counselor</option>
                       </select>
                     </div>
 
                     {/* Conditional Rendering */}
                     {mode === 'select' && (
                       <div className="text-gray-400 text-center mt-4">
-                        Select a mode for conversation.
+                        Select a mode to connect with our CareerPro team.
                       </div>
                     )}
 
                     {mode === 'text' && (
                       <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg max-h-[50vh] overflow-y-auto">
                         {/* Text Chat UI */}
-                        <h3 className="text-xl font-bold mb-4 text-yellow-400">Chat with us</h3>
-                        <p className="text-gray-200">Text conversation below.</p>
+                        <h3 className="text-xl font-bold mb-4 text-yellow-400">Chat with CareerPro Advisor</h3>
+                        <p className="text-gray-200">Get instant guidance on courses and placements.</p>
                         <textarea
-                          placeholder="Type your message..."
+                          placeholder="Type your message about career guidance..."
                           className="w-full p-1 bg-black border border-gray-600 rounded-lg mt-2 text-white"
                         ></textarea>
                         <button className="mt-4 bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-300">
-                          Send
+                          Send Message
                         </button>
                       </div>
                     )}
@@ -197,14 +197,14 @@ const ContactPage = () => {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm mb-2">Message</label>
+                    <label className="block text-sm mb-2">Career Goals & Questions</label>
                     <textarea
                       name="message"
                       rows={3}
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                      placeholder="Tell us about your goals..."
+                      placeholder="Tell us about your career goals, course preferences, or placement queries..."
                     />
                   </div>
 
@@ -213,7 +213,7 @@ const ContactPage = () => {
                     disabled={isLoading}
                     className="w-full bg-yellow-400 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
                   >
-                    {isLoading ? "Sending..." : "Send Message"}
+                    {isLoading ? "Sending..." : "Send Message to CareerPro"}
                     <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>

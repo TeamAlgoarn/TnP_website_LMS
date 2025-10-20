@@ -122,19 +122,13 @@ const Placements = () => {
   };
 
   const stats = [
-    { number: 95, suffix: '%', label: 'Placement Rate', icon: <TrendingUp className="h-6 w-6" /> },
-    { number: 75, suffix: 'K', label: 'Average Package', icon: <Award className="h-6 w-6" />, prefix: '$' },
-    { number: 200, suffix: '+', label: 'Partner Companies', icon: <Building2 className="h-6 w-6" /> },
-    { number: 5000, suffix: '+', label: 'Alumni Placed', icon: <Users className="h-6 w-6" /> },
+    { number: 78, suffix: '%', label: 'Placement Rate', icon: <TrendingUp className="h-6 w-6" /> },
+    { number: 9, suffix: 'LPA', label: 'Average Package', icon: <Award className="h-6 w-6" />, prefix: '₹' },
+    { number: 120, suffix: '+', label: 'Partner Companies', icon: <Building2 className="h-6 w-6" /> },
+    { number: 850, suffix: '+', label: 'Alumni Placed', icon: <Users className="h-6 w-6" /> },
   ];
 
   const companies = [
-    {
-      name: "Google",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-      tier: 'Premium'
-    },
-
     {
       name: "TCS",
       logo: "https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service-1920x1144.png",
@@ -146,58 +140,158 @@ const Placements = () => {
       tier: 'Premium'
     },
     {
-      name: "Dell",
+      name: "Wipro",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Wipro_Logo_2023.svg/2560px-Wipro_Logo_2023.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "HCL Technologies",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/HCL_Technologies_logo.svg/2560px-HCL_Technologies_logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Tech Mahindra",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Tech_Mahindra_Logo.svg/2560px-Tech_Mahindra_Logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Accenture",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/2560px-Accenture.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Cognizant",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Cognizant_logo_2022.svg/2560px-Cognizant_logo_2022.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Capgemini",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Capgemini_Logo.svg/2560px-Capgemini_Logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "IBM India",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Microsoft India",
+      logo: "https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Amazon India",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Google India",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      tier: 'Premium'
+    },
+    {
+      name: "Dell India",
       logo: "https://static.vecteezy.com/system/resources/previews/021/514/860/original/dell-logo-brand-computer-symbol-white-design-usa-laptop-illustration-with-black-background-free-vector.jpg",
       tier: 'Premium'
     },
     {
-        name: "Microsoft",
-        logo: "https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
-        tier: 'Premium'
+      name: "Intel India",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/2560px-Intel_logo_%282006-2020%29.svg.png",
+      tier: 'Premium'
     },
+    {
+      name: "Oracle India",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "SAP India",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png",
+      tier: 'Premium'
+    },
+    {
+      name: "Mindtree",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mindtree_logo.svg/2560px-Mindtree_logo.svg.png",
+      tier: 'Standard'
+    },
+    {
+      name: "L&T Infotech",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/LTI_Logo.svg/2560px-LTI_Logo.svg.png",
+      tier: 'Standard'
+    },
+    {
+      name: "Mphasis",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mphasis_logo.svg/2560px-Mphasis_logo.svg.png",
+      tier: 'Standard'
+    },
+    {
+      name: "Hexaware",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hexaware_Technologies_logo.svg/2560px-Hexaware_Technologies_logo.svg.png",
+      tier: 'Standard'
+    }
   ];
 
   const successStories = [
     {
-      name: 'Sarah Johnson',
-      role: 'Senior Software Engineer',
-      company: 'Google',
-      package: '$120K',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg',
-      story: 'From a non-tech background to Google in 8 months. The comprehensive training and placement support made it possible.',
+      name: 'Priya Sharma',
+      role: 'Software Engineer',
+      company: 'Infosys',
+      package: '₹12 LPA',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      story: 'From a small town in Uttar Pradesh to Infosys Bangalore. CareerPro\'s training and placement support helped me achieve my dreams in just 6 months.',
       course: 'Full Stack Development',
       rating: 5,
     },
     {
-      name: 'Michael Chen',
-      role: 'Data Scientist',
-      company: 'Microsoft',
-      package: '$110K',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
-      story: 'The data science program exceeded my expectations. Real projects and industry mentorship were game-changers.',
+      name: 'Rajesh Kumar',
+      role: 'Data Analyst',
+      company: 'TCS',
+      package: '₹9 LPA',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      story: 'As a mechanical engineer, I never thought I could switch to IT. CareerPro made it possible with their structured Data Science program and dedicated placement cell.',
       course: 'Data Science & Analytics',
       rating: 5,
     },
     {
-      name: 'Emily Rodriguez',
+      name: 'Anjali Patel',
       role: 'Cloud Engineer',
-      company: 'Amazon',
-      package: '$105K',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg',
-      story: 'AWS certification and hands-on experience helped me land my dream job at Amazon Web Services.',
+      company: 'Wipro',
+      package: '₹14 LPA',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      story: 'The AWS certification and real-time projects at CareerPro gave me the confidence to crack Wipro interviews. Got placed even before course completion!',
       course: 'Cloud Computing & DevOps',
       rating: 5,
     },
     {
-      name: 'David Kim',
+      name: 'Arun Mehta',
       role: 'Mobile Developer',
-      company: 'Apple',
-      package: '$115K',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      story: 'The mobile development course was perfectly aligned with industry needs. Now I am building apps for millions.',
+      company: 'Tech Mahindra',
+      package: '₹11 LPA',
+      image: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      story: 'Coming from a non-IT background, CareerPro\'s mobile development course was perfectly structured. The placement team ensured I got multiple offers.',
       course: 'Mobile App Development',
       rating: 5,
     },
+    {
+      name: 'Sneha Reddy',
+      role: 'Cybersecurity Analyst',
+      company: 'HCL Technologies',
+      package: '₹13 LPA',
+      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      story: 'The cybersecurity program at CareerPro is industry-relevant. Got placed at HCL with a great package and working on exciting security projects.',
+      course: 'Cybersecurity Specialist',
+      rating: 5,
+    },
+    {
+      name: 'Vikram Singh',
+      role: 'UI/UX Designer',
+      company: 'Accenture',
+      package: '₹10 LPA',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      story: 'CareerPro helped me transition from graphic design to UI/UX. The portfolio building sessions and mock interviews were incredibly helpful for Accenture.',
+      course: 'UI/UX Design',
+      rating: 5,
+    }
   ];
 
   const placementProcess = [
@@ -250,7 +344,7 @@ const Placements = () => {
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}>
-            95% placement rate with top-tier companies. Your dream job is just one course away.
+            78% placement rate with 120+ top Indian and multinational companies. Your dream job is just one course away.
           </p>
           <button
             onClick={handleStartJourney}
@@ -308,10 +402,10 @@ const Placements = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Partner Companies</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              We've built strong relationships with industry leaders to provide you with the best opportunities.
+              We've built strong relationships with 120+ Indian and global companies to provide you with the best opportunities.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {companies.map((company, index) => (
               <div 
                 key={index} 
@@ -320,7 +414,7 @@ const Placements = () => {
                     ? 'opacity-100 translate-y-0 rotate-0' 
                     : 'opacity-0 translate-y-8 rotate-3'
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
                 <img
                     src={company.logo}
@@ -351,10 +445,10 @@ const Placements = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Real stories from our alumni who transformed their careers and achieved their goals.
+              Real stories from our Indian alumni who transformed their careers and achieved their dreams.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {successStories.map((story, index) => (
               <div 
                 key={index} 
@@ -363,7 +457,7 @@ const Placements = () => {
                     ? 'opacity-100 translate-y-0 rotate-0' 
                     : 'opacity-0 translate-y-12 -rotate-1'
                 }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="flex items-start space-x-4 mb-6">
                   <img
@@ -402,7 +496,7 @@ const Placements = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Placement Process</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              A systematic approach to ensure you're fully prepared for your dream job.
+              A systematic approach to ensure you're fully prepared for your dream job in Indian IT industry.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
@@ -439,7 +533,7 @@ const Placements = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Salary Ranges by Role</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Average salary packages our alumni receive across different roles and experience levels.
+              Average salary packages our Indian alumni receive across different roles and experience levels.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -447,28 +541,28 @@ const Placements = () => {
               {
                 title: 'Entry Level (0-2 years)',
                 roles: [
-                  { name: 'Software Developer', range: '$60K - $80K' },
-                  { name: 'Data Analyst', range: '$55K - $75K' },
-                  { name: 'UI/UX Designer', range: '$50K - $70K' },
-                  { name: 'Cloud Associate', range: '$65K - $85K' }
+                  { name: 'Software Developer', range: '₹6 - ₹12 LPA' },
+                  { name: 'Data Analyst', range: '₹5 - ₹10 LPA' },
+                  { name: 'UI/UX Designer', range: '₹4 - ₹8 LPA' },
+                  { name: 'Cloud Associate', range: '₹7 - ₹13 LPA' }
                 ]
               },
               {
                 title: 'Mid Level (2-5 years)',
                 roles: [
-                  { name: 'Senior Developer', range: '$90K - $120K' },
-                  { name: 'Data Scientist', range: '$100K - $130K' },
-                  { name: 'Product Designer', range: '$85K - $115K' },
-                  { name: 'DevOps Engineer', range: '$95K - $125K' }
+                  { name: 'Senior Developer', range: '₹12 - ₹20 LPA' },
+                  { name: 'Data Scientist', range: '₹15 - ₹25 LPA' },
+                  { name: 'Product Designer', range: '₹10 - ₹18 LPA' },
+                  { name: 'DevOps Engineer', range: '₹14 - ₹22 LPA' }
                 ]
               },
               {
                 title: 'Senior Level (5+ years)',
                 roles: [
-                  { name: 'Tech Lead', range: '$140K - $180K' },
-                  { name: 'Principal Engineer', range: '$160K - $220K' },
-                  { name: 'Design Director', range: '$130K - $170K' },
-                  { name: 'Solutions Architect', range: '$150K - $200K' }
+                  { name: 'Tech Lead', range: '₹22 - ₹35 LPA' },
+                  { name: 'Principal Engineer', range: '₹30 - ₹50 LPA' },
+                  { name: 'Design Director', range: '₹20 - ₹32 LPA' },
+                  { name: 'Solutions Architect', range: '₹25 - ₹40 LPA' }
                 ]
               }
             ].map((level, index) => (
@@ -521,7 +615,7 @@ const Placements = () => {
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}>
-            Join our next batch and become part of our successful alumni network.
+            Join 850+ successful Indian professionals who transformed their careers with CareerPro.
           </p>
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
             ctaVisible 

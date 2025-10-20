@@ -120,45 +120,49 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6" />,
       title: 'Phone',
-      details: ['+1 (555) 123-4567', '+1 (555) 987-6543'],
-      subtitle: 'Mon-Fri 9am-6pm',
+      details: ['+91 98765 43210', '+91 91234 56789'],
+      subtitle: 'Mon-Sat 9am-7pm',
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
-      details: ['info@careerpro.com', 'admissions@careerpro.com'],
-      subtitle: 'We reply within 24 hours',
+      details: ['info@careerpro.in', 'admissions@careerpro.in'],
+      subtitle: 'We reply within 2 hours',
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: 'Address',
-      details: ['123 Education Street', 'Tech City, TC 12345'],
-      subtitle: 'Visit our campus',
+      details: ['Tech Park, Sector 62', 'Noida, Uttar Pradesh 201309'],
+      subtitle: 'Visit our Noida campus',
     },
     {
       icon: <Clock className="h-6 w-6" />,
       title: 'Office Hours',
-      details: ['Mon-Fri: 9:00 AM - 6:00 PM', 'Sat: 10:00 AM - 4:00 PM'],
-      subtitle: 'Sunday closed',
+      details: ['Mon-Sat: 9:00 AM - 7:00 PM', 'Sun: 10:00 AM - 2:00 PM'],
+      subtitle: '24/7 online support available',
     },
   ];
 
   const faqs = [
     {
-      question: 'What are the admission requirements?',
-      answer: 'Basic computer literacy and passion for learning. No prior programming experience required for beginner courses.',
+      question: 'What are the admission requirements for Indian students?',
+      answer: 'Basic computer literacy and passion for learning. No prior programming experience required for beginner courses. We welcome students from all educational backgrounds.',
     },
     {
-      question: 'Do you provide job placement assistance?',
-      answer: 'Yes, we have a 95% placement rate with dedicated career support, resume building, and interview preparation.',
+      question: 'Do you provide job placement assistance in India?',
+      answer: 'Yes, we have a 78% placement rate with 120+ partner Indian companies including TCS, Infosys, Wipro, and more. Dedicated career support with resume building and interview preparation.',
     },
     {
-      question: 'Are there any financing options?',
-      answer: 'We offer flexible payment plans, education loans, and income-share agreements to make learning accessible.',
+      question: 'Are there any EMI or financing options available?',
+      answer: 'We offer flexible EMI options, education loans through partner banks, and income-share agreements to make quality education accessible to all Indian students.',
     },
     {
-      question: 'What is the class schedule like?',
-      answer: 'We offer both weekday and weekend batches, with online and in-person options to fit your schedule.',
+      question: 'What is the class schedule for working professionals?',
+      answer: 'We offer flexible batches including weekday evenings, weekend batches, and online options to accommodate working professionals and college students across India.',
+    },
+    {
+      question: 'Do you provide certificates recognized by Indian companies?',
+      answer: 'Yes, we provide industry-recognized certificates and also help with NASSCOM and other relevant certifications valued by Indian IT companies.',
     },
   ];
 
@@ -182,14 +186,14 @@ const Contact = () => {
             data-animate-id="hero-title"
             className={getAnimationClass('hero-title')}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch with CareerPro</h1>
           </div>
           <div 
             data-animate-id="hero-subtitle"
             className={getAnimationClass('hero-subtitle', 'delay-200')}
           >
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to transform your career? Let's discuss how we can help you achieve your goals.
+              Ready to transform your career in the Indian IT industry? Let's discuss how we can help you achieve your goals with 78% placement success.
             </p>
           </div>
         </div>
@@ -295,6 +299,10 @@ const Contact = () => {
                 className={getAnimationClass('contact-info-title')}
               >
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+                <p className="text-gray-400 mb-6">
+                  Reach out to us for career guidance, course information, or placement assistance. 
+                  We're here to help you succeed in the Indian IT industry.
+                </p>
               </div>
               <div 
                 data-animate-id="contact-info-grid"
@@ -325,12 +333,39 @@ const Contact = () => {
                 data-animate-id="map-section"
                 className={getAnimationClass('map-section', 'bg-gray-900 p-6 rounded-lg delay-500')}
               >
-                <h3 className="font-semibold mb-4">Find Us</h3>
+                <h3 className="font-semibold mb-4">Find Our Noida Campus</h3>
                 <div className="bg-gray-800 h-64 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="h-12 w-12 text-yellow-400 mx-auto mb-2" />
-                    <p className="text-gray-400">Interactive Map</p>
-                    <p className="text-gray-500 text-sm">123 Education Street, Tech City</p>
+                    <p className="text-gray-400">Tech Park, Sector 62</p>
+                    <p className="text-gray-500 text-sm">Noida, Uttar Pradesh 201309</p>
+                    <p className="text-gray-500 text-xs mt-2">Easy access from Delhi NCR</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CareerPro India Stats */}
+              <div 
+                data-animate-id="stats-section"
+                className={getAnimationClass('stats-section', 'bg-gradient-to-br from-yellow-400 to-yellow-500 p-6 rounded-lg text-black delay-600')}
+              >
+                <h3 className="font-semibold mb-4 text-center">CareerPro India Impact</h3>
+                <div className="grid grid-cols-2 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold">850+</div>
+                    <div className="text-sm">Professionals Trained</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">78%</div>
+                    <div className="text-sm">Placement Rate</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">120+</div>
+                    <div className="text-sm">Partner Companies</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">₹9 LPA</div>
+                    <div className="text-sm">Avg Package</div>
                   </div>
                 </div>
               </div>
@@ -348,7 +383,7 @@ const Contact = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-400">
-              Quick answers to common questions about our programs and services.
+              Quick answers to common questions about our programs and services in India.
             </p>
           </div>
           <div className="space-y-6">
@@ -377,9 +412,9 @@ const Contact = () => {
               <Clock className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">Office Hours</h3>
               <div className="space-y-2 text-gray-300">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
+                <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                <p>Sunday: 10:00 AM - 2:00 PM</p>
+                <p>Holidays: As per Indian calendar</p>
               </div>
               <p className="text-yellow-400 mt-4">Walk-ins welcome during office hours</p>
             </div>
@@ -390,12 +425,43 @@ const Contact = () => {
               <Phone className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">24/7 Student Support</h3>
               <div className="space-y-2 text-gray-300">
-                <p>For current students: +1 (555) 999-0000</p>
+                <p>For current students: +91 98765 43210</p>
                 <p>Emergency line available 24/7</p>
-                <p>Email: support@careerpro.com</p>
+                <p>Email: support@careerpro.in</p>
               </div>
-              <p className="text-yellow-400 mt-4">We're here when you need us</p>
+              <p className="text-yellow-400 mt-4">We're here when you need us across India</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Indian Locations */}
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div 
+            data-animate-id="locations-header"
+            className={getAnimationClass('locations-header', 'text-center mb-12')}
+          >
+            <h2 className="text-3xl font-bold mb-4">Our Centers Across India</h2>
+            <p className="text-gray-400">Serving students from major IT hubs</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { city: 'Bangalore', address: 'Koramangala, 560034' },
+              { city: 'Hyderabad', address: 'HITEC City, 500081' },
+              { city: 'Pune', address: 'Hinjewadi, 411057' },
+              { city: 'Chennai', address: 'Tidel Park, 600113' }
+            ].map((location, index) => (
+              <div 
+                key={index}
+                data-animate-id={`location-${index}`}
+                className={getAnimationClass(`location-${index}`, 'bg-black p-6 rounded-lg text-center hover:-translate-y-2 transition-all duration-200')}
+              >
+                <MapPin className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">{location.city}</h3>
+                <p className="text-gray-400 text-sm">{location.address}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

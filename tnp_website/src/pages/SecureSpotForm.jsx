@@ -44,8 +44,8 @@ const SecureSpotForm = () => {
   }, []);
 
   const courseData = {
-    price: "$2,999",
-    installmentPrice: "$499/month"
+    price: "₹89,999",
+    installmentPrice: "₹15,999/month"
   };
 
   // Validation rules
@@ -126,12 +126,12 @@ const SecureSpotForm = () => {
           data-animate-id="enrollment-form"
           className={getAnimationClass('enrollment-form', 'bg-gray-900 p-8 rounded-lg')}
         >
-          <h2 className="text-2xl font-bold mb-6 text-center">Secure Your Spot</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">Secure Your Spot at CareerPro</h2>
           {isSubmitted ? (
             <div className="text-center py-8">
               <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-green-400 mb-2">Enrollment Request Sent!</h3>
-              <p className="text-gray-400">Our admissions team will contact you within 24 hours.</p>
+              <p className="text-gray-400">Our admissions team will contact you within 2 hours.</p>
             </div>
           ) : (
             <div className="space-y-6">
@@ -179,7 +179,7 @@ const SecureSpotForm = () => {
                     className={`w-full px-4 py-3 bg-black border rounded-lg focus:ring-2 focus:ring-yellow-400 ${
                       errors.phone ? "border-red-500" : "border-gray-600"
                     }`}
-                    placeholder="Enter your phone number"
+                    placeholder="Enter your 10-digit number"
                   />
                   {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                 </div>
@@ -215,7 +215,7 @@ const SecureSpotForm = () => {
                     />
                     <div>
                       <div className="font-semibold">Full Payment</div>
-                      <div className="text-sm text-gray-400">{courseData.price} (Save $500)</div>
+                      <div className="text-sm text-gray-400">{courseData.price} (Save ₹15,000)</div>
                     </div>
                   </label>
                   <label className="flex items-center p-4 bg-black border border-gray-600 rounded-lg cursor-pointer hover:border-yellow-400">
@@ -244,7 +244,7 @@ const SecureSpotForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-black border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                  placeholder="Tell us about your goals or any questions..."
+                  placeholder="Tell us about your career goals or any questions..."
                 />
               </div>
 

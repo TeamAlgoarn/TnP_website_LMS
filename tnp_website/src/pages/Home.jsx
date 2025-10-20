@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import  ContactPage  from '../components/ContactPage';
+import ContactPage from '../components/ContactPage';
 import { ArrowRight, Users, Award, TrendingUp, Star, CheckCircle, X, User, Mail, Lock, Phone, Send } from 'lucide-react';
+import homeImage from '../assets/images/Home/home.jpeg';
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -110,48 +111,51 @@ const Home = () => {
     });
   };
 
+  // Updated stats with Indian context
   const stats = [
-    { number: 5000, suffix: '+', label: 'Students Trained' },
-    { number: 95, suffix: '%', label: 'Placement Rate' },
-    { number: 200, suffix: '+', label: 'Partner Companies' },
-    { number: 4.8, suffix: '/5', label: 'Average Rating', isDecimal: true },
+    { number: 850, suffix: '+', label: 'Professionals Trained' },
+    { number: 78, suffix: '%', label: 'Placement Rate' },
+    { number: 120, suffix: '+', label: 'Partner Companies' },
+    { number: 4.2*10, suffix: '/5', label: 'Average Rating', isDecimal: true },
   ];
 
+  // Updated services for Indian corporate training
   const services = [
     {
       icon: <Users className="h-8 w-8" />,
-      title: 'Professional Training',
-      description: 'Industry-relevant courses designed by experts to match current market demands.',
+      title: 'NAPS Apprenticeship Programs',
+      description: 'Govt-certified training under National Apprenticeship Promotion Scheme with structured learn-and-earn model.',
     },
     {
       icon: <Award className="h-8 w-8" />,
-      title: 'Placement Support',
-      description: 'Dedicated placement team ensuring 95% job placement success rate.',
+      title: 'Industry Partnerships',
+      description: 'Direct hiring partnerships with Infosys, Wipro, TCS, Tech Mahindra and other IT leaders.',
     },
     {
       icon: <TrendingUp className="h-8 w-8" />,
-      title: 'Career Growth',
-      description: 'Continuous mentorship and career guidance for long-term success.',
+      title: 'Skill Gap Bridging',
+      description: 'Structured programs addressing emerging tech skill gaps in AI, Data Science and Blockchain.',
     },
   ];
 
+  // Updated testimonials with Indian professionals and companies
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      role: 'Software Engineer at Google',
-      content: 'CareerPro transformed my career. The training was exceptional and the placement support was outstanding.',
+      name: 'Rajesh Kumar',
+      role: 'Production Lead, Automotive MNC',
+      content: 'CareerPro\'s apprenticeship program reduced our onboarding costs by 40% and attrition by 60%. Trainees were productive from day one.',
       rating: 5,
     },
     {
-      name: 'Michael Chen',
-      role: 'Data Scientist at Microsoft',
-      content: 'The hands-on approach and industry connections helped me land my dream job in just 3 months.',
+      name: 'Priya Sharma',
+      role: 'IT Professional, IBM Partnership',
+      content: 'The emerging tech skill program helped our team transition to AI and blockchain technologies with practical, hands-on training.',
       rating: 5,
     },
     {
-      name: 'Emily Davis',
-      role: 'Product Manager at Amazon',
-      content: 'Best investment I made for my career. The mentorship program is truly world-class.',
+      name: 'Ankit Patel',
+      role: 'Plant Manager, Manufacturing',
+      content: 'Structured apprenticeships solved our skilled worker shortage. 500+ roles filled efficiently during peak season.',
       rating: 5,
     },
   ];
@@ -316,21 +320,24 @@ const Home = () => {
           visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div 
+  className="absolute inset-0 bg-cover bg-center opacity-20"
+  style={{ backgroundImage: `url(${homeImage})` }}
+></div>
         
         <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent leading-tight px-4 transition-all duration-1000 delay-300 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Transform Your Career with{' '}
-            <span className="block sm:inline">Professional Training</span>
+            <span className="block sm:inline">Industry-Led Skilling</span>
           </h1>
           
           <p className={`text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4 transition-all duration-1000 delay-500 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Join thousands of successful professionals who started their journey with CareerPro.{' '}
-            Get industry-relevant training and guaranteed placement support.
+            Join 850+ Indian professionals trained through CareerPro's Apprenticeship Program. 
+            Get NAPS-certified training with 78% placement success in 120+ partner companies including Infosys, TCS, and Wipro.
           </p>
           
           <div className={`flex flex-col sm:flex-row gap-4 justify-center px-4 transition-all duration-1000 delay-700 ${
@@ -398,7 +405,7 @@ const Home = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Comprehensive solutions to accelerate your career growth and ensure successful job placement.
+              Comprehensive solutions to bridge skill gaps and ensure successful job placement in Indian industries.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -433,7 +440,7 @@ const Home = () => {
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Hear from our alumni who have achieved remarkable career success.
+              Hear from Indian professionals and companies who have achieved remarkable success through our programs.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -476,7 +483,7 @@ const Home = () => {
           <p className={`text-xl text-gray-400 mb-8 transition-all duration-1000 delay-400 ${
             visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Join our next batch and take the first step towards your dream career.
+            Join our next batch and take the first step towards your dream career in India's growing tech industry.
           </p>
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
             visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
