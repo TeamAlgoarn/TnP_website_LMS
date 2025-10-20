@@ -1,9 +1,93 @@
+import ab_initio from '../assets/images/CourseCards/ab_initio.jpg';
+import ai from '../assets/images/CourseCards/ai.jpeg';
+import angular from '../assets/images/CourseCards/angular.jpeg';
+import angular7 from '../assets/images/CourseCards/angular7.jpeg';
+import angular8 from '../assets/images/CourseCards/angular8.jpeg';
+import ansible from '../assets/images/CourseCards/ansible.jpg';
+import automation_testing from '../assets/images/CourseCards/automation_testing.png';
+import aws_devops from '../assets/images/CourseCards/aws_devops.jpg';
+import aws from '../assets/images/CourseCards/aws.svg';
+import azure from '../assets/images/CourseCards/azure.png';
+import apache from '../assets/images/CourseCards/apache.jpeg';
+import big_data_hadoop from '../assets/images/CourseCards/big_data_hadoop.png';
+import big_data from '../assets/images/CourseCards/big_data.jpg';
+import blockchain from '../assets/images/CourseCards/blockchain.jpeg';
+import blueprism from '../assets/images/CourseCards/blueprism.jpg';
+import c_cpp from '../assets/images/CourseCards/c_cpp.webp';
+import c_sharp from '../assets/images/CourseCards/c_sharp.jpeg';
+import chef from '../assets/images/CourseCards/chef.jpg';
+import codedui from '../assets/images/CourseCards/codedui.png';
+import cognos from '../assets/images/CourseCards/cognos.jpeg';
+import css from '../assets/images/CourseCards/css.jpeg';
+import datascience_python from '../assets/images/CourseCards/datascience_python.jpg';
+import datascience from '../assets/images/CourseCards/datascience.jpg';
+import datastage from '../assets/images/CourseCards/datastage.jpg';
+import deep_learning from '../assets/images/CourseCards/deep_learning.jpeg';
+import devops from '../assets/images/CourseCards/devops.jpg';
+import digital_marketing from '../assets/images/CourseCards/digital_marketing.jpeg';
+import docker from '../assets/images/CourseCards/docker.jpg';
+import ethical_learning from '../assets/images/CourseCards/ethical_learning.jpeg';
+import etl_testing from '../assets/images/CourseCards/etl_testing.jpeg';
+import git_github from '../assets/images/CourseCards/git_github.webp';
+import golang from '../assets/images/CourseCards/golang.webp';
+import html from '../assets/images/CourseCards/html.png';
+import informatica_mdm from '../assets/images/CourseCards/informatica_mdm.png';
+import informatica from '../assets/images/CourseCards/informatica.png';
+import iot from '../assets/images/CourseCards/iot.jpg';
+import java from '../assets/images/CourseCards/java.avif';
+import javascript from '../assets/images/CourseCards/javascript.webp';
+import jemeter from '../assets/images/CourseCards/jemter.png';
+import kubernetes from '../assets/images/CourseCards/kubernetes.jpg';
+import loadrunner from '../assets/images/CourseCards/loadrunner.jpg';
+import machine_learning from '../assets/images/CourseCards/machine_learning.jpg';
+import manual_testing from '../assets/images/CourseCards/manual_testing.png';
+import mean from '../assets/images/CourseCards/mean.png';
+import microservices from '../assets/images/CourseCards/microservices.jpg';
+import microsoft_azure from '../assets/images/CourseCards/microsoft_azure.jpeg';
+import microsoft_dynamics from '../assets/images/CourseCards/microsoft_dynamics.png';
+import microsoft_excel from '../assets/images/CourseCards/microsoft_excel.webp';
+import mongodb from '../assets/images/CourseCards/mongodb.jpg';
+import mulesoft from '../assets/images/CourseCards/mulesoft.jpeg';
+import mysql from '../assets/images/CourseCards/mysql.jpeg';
+import nodejs from '../assets/images/CourseCards/nodejs.png';
+import obiee from '../assets/images/CourseCards/obiee.jpeg';
+import openspan from '../assets/images/CourseCards/openspan.webp';
+import openstack from '../assets/images/CourseCards/openstack.png';
+import pentaho from '../assets/images/CourseCards/pentaho.png';
+import php from '../assets/images/CourseCards/php.jpg';
+import powerbi from '../assets/images/CourseCards/powerbi.jpeg';
+import powershell from '../assets/images/CourseCards/powershell.jpg';
+import primvera_p6 from '../assets/images/CourseCards/primvera_p6.png';
+import puppet from '../assets/images/CourseCards/puppet.jpg';
+import python from '../assets/images/CourseCards/python.jpeg';
+import qlikview from '../assets/images/CourseCards/qlikview.png';
+import r from '../assets/images/CourseCards/r.webp';
+import rpa from '../assets/images/CourseCards/rpa.jpeg';
+import ruby from '../assets/images/CourseCards/ruby.jpeg';
+import salesforce_administrator from '../assets/images/CourseCards/salesforce_administrator.jpeg';
+import salesforce_developer from '../assets/images/CourseCards/salesforce_developer.jpg';
+import salesforce_training from '../assets/images/CourseCards/salesforce_training.webp';
+import scrum_master from '../assets/images/CourseCards/scrum_master.jpeg';
+import selenium from '../assets/images/CourseCards/selenium.jpeg';
+import soapui from '../assets/images/CourseCards/soapui.png';
+import sql_server_dba from '../assets/images/CourseCards/sql_server_dba.jpg';
+import sql_server from '../assets/images/CourseCards/sql_server.png';
+import swift from '../assets/images/CourseCards/swift.jpg';
+import tableau from '../assets/images/CourseCards/tableau.webp';
+import teradata from '../assets/images/CourseCards/teradata.png';
+import typescript from '../assets/images/CourseCards/typescript.jpg';
+import uipath from '../assets/images/CourseCards/uipath.webp';
+import unix_shell from '../assets/images/CourseCards/unix_shell.png';
+import workday from '../assets/images/CourseCards/workday.jpeg';
+
+
+
 export const courses = [
   {
     id: 1,
     title: "AWS Online Training Course",
     category: "Cloud Computing",
-    image: "https://opstrainerz.com/uploads/course-images/1599024293-AWS%20certification-01.svg",
+    image: aws,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -17,7 +101,7 @@ export const courses = [
     id: 2,
     title: "Salesforce Online Training",
     category: "Cloud Computing",
-    image: "https://www.techtrainees.com/wp-content/uploads/2018/10/Salesforce.png",
+    image: salesforce_training,
     rating: 5.0,
     ratingsCount: 2450,
     level: "Beginner",
@@ -31,7 +115,7 @@ export const courses = [
     id: 3,
     title: "Azure Develops Online Training Course",
     category: "Cloud Computing",
-    image: "https://cdn.mindmajix.com/courses/azure-devops-training-280422.png",
+    image: azure,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -45,7 +129,7 @@ export const courses = [
     id: 4,
     title: "Salesforce Developer Online Training and Certification Course",
     category: "Cloud Computing",
-    image: "https://cdn.shopaccino.com/igmguru/products/salesforce-developer-2-training-igmguru872699710l-2252199473367335_m.jpg?v=531",
+    image: salesforce_developer,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -59,7 +143,7 @@ export const courses = [
     id: 5,
     title: "Salesforce Administrator Certification Training Course",
     category: "Cloud Computing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtkW_aVTsCiLn5WsTmRJ7aszjcyyvI7MBoQ&s",
+    image: salesforce_administrator,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -73,7 +157,7 @@ export const courses = [
     id: 6,
     title: "OpenStack Training",
     category: "Cloud Computing",
-    image: "https://cdn.mindmajix.com/courses/openstack-training-120620.png",
+    image: openstack,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -87,7 +171,7 @@ export const courses = [
     id: 7,
     title: "Workday Online Training",
     category: "Cloud Computing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV3zvhrlcDLu0YjK-2fBVylkZnZfP1coa5Vg&s",
+    image: workday,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -101,7 +185,7 @@ export const courses = [
     id: 8,
     title: "IoT Online Training",
     category: "Cloud Computing",
-    image: "https://www.insystechnologies.in/images/iot.jpg",
+    image: iot,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -115,7 +199,7 @@ export const courses = [
     id: 9,
     title: "Microservices Online Training",
     category: "Cloud Computing",
-    image: "https://cdn.shopaccino.com/igmguru/products/microservices-course-5529815803073449_l.jpg?v=532",
+    image: microservices,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -130,7 +214,7 @@ export const courses = [
     id: 10,
     title: "Machine Learning Certification Course",
     category: "Data science & AI",
-    image: "https://cdn.shopaccino.com/igmguru/products/machine-learning-training-igmguru_1499895199_l.jpg?v=531",
+    image: machine_learning,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -144,7 +228,7 @@ export const courses = [
     id: 11,
     title: "Data Science Online Training",
     category: "Data science & AI",
-    image: "https://nearlearn.com/public/images/data-science-iceland.jpg",
+    image: datascience,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -158,7 +242,7 @@ export const courses = [
     id: 12,
     title: "Tableau Online Training Course",
     category: "Data science & AI",
-    image: "https://cdn.slidesharecdn.com/ss_thumbnails/tableaucourseindelhi-210225103412-thumbnail.jpg?width=640&height=640&fit=bounds",
+    image: tableau,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -172,7 +256,7 @@ export const courses = [
     id: 13,
     title: "Artificial Intelligence (AI) Online Course",
     category: "Data science & AI",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSANuSUTYOmWGlBfoc-0CGEpJiYx2Abp9OaDYY6y9LsOh-OY9d-Hp0wkjPSxyZgJGL0ezY&usqp=CAU",
+    image: ai,
     rating: 5.0,
     ratingsCount: 3590,
     level: "Beginner",
@@ -186,7 +270,7 @@ export const courses = [
     id: 14,
     title: "Deep Learning Course",
     category: "Data science & AI",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFObk3JyKQ7ns82w2Q13xpv3W7DsVVPg-zzQ&s",
+    image: deep_learning,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -200,7 +284,7 @@ export const courses = [
     id: 15,
     title: "Online Data Science with Python Training",
     category: "Data science & AI",
-    image: "https://www.learntek.org/wp-content/uploads/2016/11/300-x-180_bigdata-python_1-1.jpg",
+    image: datascience_python,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -215,7 +299,7 @@ export const courses = [
     id: 16,
     title: "Kubernetes Online Training and Certification Course",
     category: "DevOps",
-    image: "https://www.devopsschool.com/assets/assets1/images/courses/kubernetes.jpg",
+    image: kubernetes,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -229,7 +313,7 @@ export const courses = [
     id: 17,
     title: "DevOps Certification Training Course",
     category: "DevOps",
-    image: "https://cdn.shopaccino.com/igmguru/products/devops-training-igmguru734041213l-8200019728848_m.jpg?v=531",
+    image: devops,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -243,7 +327,7 @@ export const courses = [
     id: 18,
     title: "Ansible Training",
     category: "DevOps",
-    image: "https://img-c.udemycdn.com/course/750x422/3527490_bade_3.jpg",
+    image: ansible,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -257,7 +341,7 @@ export const courses = [
     id: 19,
     title: "Docker Certificaation Training Course",
     category: "DevOps",
-    image: "https://img-c.udemycdn.com/course/480x270/6483315_7539.jpg",
+    image: docker,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -271,7 +355,7 @@ export const courses = [
     id: 20,
     title: "Puppet Online Training",
     category: "DevOps",
-    image: "https://www.devopsschool.com/assets/assets1/images/courses/puppet.jpg",
+    image: puppet,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -285,7 +369,7 @@ export const courses = [
     id: 21,
     title: "AWS Certified DevOps Engineer Professional Training",
     category: "DevOps",
-    image: "https://www.webasha.com/uploads/exam/images/635fa614f09ab1667212820.4_(12)-min.jpg",
+    image: aws_devops,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -299,7 +383,7 @@ export const courses = [
     id: 22,
     title: "Chef Certification Training",
     category: "DevOps",
-    image: "https://www.emexotechnologies.com/wp-content/uploads/2023/07/Chef-Certification-Course-730x440.jpg",
+    image: chef,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -313,7 +397,7 @@ export const courses = [
     id: 23,
     title: "Git and GitHub Training Course Online",
     category: "DevOps",
-    image: "https://img-c.udemycdn.com/course/240x135/3352204_9c9a_20.jpg",
+    image: git_github,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -328,7 +412,7 @@ export const courses = [
     id: 24,
     title: "Python Programming Online Training Course",
     category: "Programming Languages",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxVn34bly4kvqZIEw1lMVrgG4BHlf94eXSRVsd8wAyWXyKPePrHnq6DaeSWNv-7bjoxAg&usqp=CAU",
+    image: python,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -342,7 +426,7 @@ export const courses = [
     id: 25,
     title: "Java Certification Training Course",
     category: "Programming Languages",
-    image: "https://edukators.in/wp-content/uploads/2023/11/Java-training.jpeg",
+    image: java,
     rating: 5.0,
     ratingsCount: 1967,
     level: "Beginner",
@@ -356,7 +440,7 @@ export const courses = [
     id: 26,
     title: "Javascript Online Training",
     category: "Programming Languages",
-    image: "https://img-c.udemycdn.com/course/240x135/3618838_5145_2.jpg",
+    image: javascript,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -370,7 +454,7 @@ export const courses = [
     id: 27,
     title: "Unix Shell Scripting Training",
     category: "Programming Languages",
-    image: "https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1551437392/img/co_img_1407_1622197216.png",
+    image: unix_shell,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -384,7 +468,7 @@ export const courses = [
     id: 28,
     title: "PHP Online Training",
     category: "Programming Languages",
-    image: "https://www.thinknexttraining.com/images/php-training-chandigarh.jpg",
+    image: php,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -398,7 +482,7 @@ export const courses = [
     id: 29,
     title: "C and C++ Online Training",
     category: "Programming Languages",
-    image: "https://img-c.udemycdn.com/course/240x135/5642330_9d84_2.jpg",
+    image: c_cpp,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -412,7 +496,7 @@ export const courses = [
     id: 30,
     title: "R Programming Online Training",
     category: "Programming Languages",
-    image: "https://img-c.udemycdn.com/course/480x270/5269030_7892_3.jpg",
+    image: r,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -426,7 +510,7 @@ export const courses = [
     id: 31,
     title: "C Sharp Online Training",
     category: "Programming Languages",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXWQVRk5VmVE94UYiSk3dBoQiLTxeSXqE6RFwXMJ4GksgHLqW__V4kgd5IUUFLnZZ7YI&usqp=CAU",
+    image: c_sharp,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -440,7 +524,7 @@ export const courses = [
     id: 32,
     title: "Google Go Online Training",
     category: "Programming Languages",
-    image: "https://5.imimg.com/data5/SELLER/Default/2024/3/400794624/VX/BJ/YG/15037679/golang-online-coaching-classes-in-india-hyderabad-500x500.png",
+    image: golang,
     rating: 5.0,
     ratingsCount: 1952,
     level: "Beginner",
@@ -454,7 +538,7 @@ export const courses = [
     id: 34,
     title: "Ruby on Rails Training",
     category: "Ruby on Rails Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQppuRsB22l8TB08WE_AAoFxeGc0B0Nv_vKBL-sfIBRvJ0It1Cw0es3VAilEtgwa--SHy0&usqp=CAU",
+    image: ruby,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -468,7 +552,7 @@ export const courses = [
     id: 35,
     title: "TypeScript Online Training",
     category: "Programming Languages",
-    image: "https://codse.wordpress.com/wp-content/uploads/2024/06/986406_89c5_3.jpg",
+    image: typescript,
     rating: 5.0,
     ratingsCount: 1988,
     level: "Beginner",
@@ -482,7 +566,7 @@ export const courses = [
     id: 36,
     title: "Swift Online Training",
     category: "Programming Languages",
-    image: "https://cdn.prod.website-files.com/63fda77e5fd49598bbf00892/6416e5ccdbc0d68da0d7727d_swift.jpg",
+    image: swift,
     rating: 5.0,
     ratingsCount: 1988,
     level: "Beginner",
@@ -497,7 +581,7 @@ export const courses = [
     id: 37,
     title: "LoadRuner Online Training",
     category: "Software Testing",
-    image: "https://www.futureqtech.com/assets/img/course/loadrunner.jpg",
+    image: loadrunner,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -511,7 +595,7 @@ export const courses = [
     id: 38,
     title: "JMeter Training",
     category: "Software Testing",
-    image: "https://cdn.mindmajix.com/courses/jemter-training-120620.png",
+    image: jemeter,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -525,7 +609,7 @@ export const courses = [
     id: 39,
     title: "Manual Testing Training",
     category: "Software Testing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQecQaY6tz2eoIIp1Qh3fB-mAMOoUjQ43O1Ow&s",
+    image: manual_testing,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -539,7 +623,7 @@ export const courses = [
     id: 40,
     title: "SoapUI Training",
     category: "Software Testing",
-    image: "https://cdn.mindmajix.com/courses/soapui-training.png",
+    image: soapui,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -553,7 +637,7 @@ export const courses = [
     id: 41,
     title: "Coded UI Training",
     category: "Software Testing",
-    image: "https://cdn.mindmajix.com/courses/coded-ui-training.png",
+    image: codedui,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -567,7 +651,7 @@ export const courses = [
     id: 42,
     title: "ETL Testing Training",
     category: "Software Testing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs-DMmvE6YKDvSR8PkYLEJgThnOFR6_9T7VQ&s",
+    image: etl_testing,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -581,7 +665,7 @@ export const courses = [
     id: 43,
     title: "Big Data Testing Online Training",
     category: "Software Testing",
-    image: "https://static.vecteezy.com/system/resources/thumbnails/008/405/918/small/big-data-analytics-big-data-innovation-technology-concept-blockchain-network-analysis-artificial-intelligence-hexagonal-grid-sphere-in-wireframe-hand-on-blue-background-illustration-vector.jpg",
+    image: big_data,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -595,7 +679,7 @@ export const courses = [
     id: 44,
     title: "Automation Testing Courses",
     category: "Software Testing",
-    image: "https://sathyatech.com/wp-content/uploads/2025/03/Automation-Testing.png",
+    image: automation_testing,
     rating: 5.0,
     ratingsCount: 1988,
     level: "Beginner",
@@ -609,7 +693,7 @@ export const courses = [
     id: 45,
     title: "Selenium Online Training Certification Course ",
     category: "Software Testing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5p32zmucEaNc_L8kFrNShP2lQ-wISQq4XMZApkkQlwMIFdIVq7M8tV6hCDOK8VPV6fEM&usqp=CAU",
+    image: selenium,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -624,7 +708,7 @@ export const courses = [
     id: 46,
     title: "Online Digital Marketing Courses",
     category: "Digital Marketing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB63re5mavWYrwgQlTtO41C3eotR6ythBknw&s",
+    image: digital_marketing,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -639,7 +723,7 @@ export const courses = [
     id: 47,
     title: "Angular Online Training",
     category: "Web Designing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEungY-zZ-ZoFjsRUaMMYqpaA3pwAOJ7JBVQ&s",
+    image: angular,
     rating: 5.0,
     ratingsCount: 2450,
     level: "Beginner",
@@ -653,7 +737,7 @@ export const courses = [
     id: 48,
     title: "Node.js Online Training",
     category: "Web Designing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-wH95EivA1iQR__IuH5r9UVEWFHe9OgobikOIOmTyjMWr6Cz4Zo5glTqpP2sq3WlVcZA&usqp=CAU",
+    image: nodejs,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -667,7 +751,7 @@ export const courses = [
     id: 49,
     title: "MEAN Stack Training",
     category: "Web Designing",
-    image: "https://www.itbrainy.com/wp-content/uploads/2020/07/MeanStack-training-in-Coimbatore.png",
+    image: mean,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -681,7 +765,7 @@ export const courses = [
     id: 50,
     title: "HTML Online Training",
     category: "Web Designing",
-    image: "https://prestahero.com/img/cms/html-5.png",
+    image: html,
     rating: 5.0,
     ratingsCount: 1976,
     level: "Beginner",
@@ -695,7 +779,7 @@ export const courses = [
     id: 51,
     title: "CSS Online Training",
     category: "Web Designing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbPi5h5Xfgn3xQK4gTndwDf9zK4xVif-EwRAm4OnleODBEzchOiTtObLrb4rhDqu8KZqY&usqp=CAU",
+    image: css,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -709,7 +793,7 @@ export const courses = [
     id: 52,
     title: "Angular 8 Online Training",
     category: "Web Designing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKB9ritMYh69DDo20nHscn_fk26PQcD5_1MkflVOVkH-xWHVl8VPqM-wi01kQdfLolh7w&usqp=CAU",
+    image: angular8,
     rating: 5.0,
     ratingsCount: 1987,
     level: "Beginner",
@@ -723,7 +807,7 @@ export const courses = [
     id: 53,
     title: "Angular 7 Online Training",
     category: "Web Designing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8P24vbpI1EOUiVyHiYg2UlBNdBp3voOCbrBO3AckmBus4OMhcYQnZx9v8VWwr8OrXjQc&usqp=CAU",
+    image: angular7,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -738,7 +822,7 @@ export const courses = [
     id: 54,
     title: "Informatica Certification Training Online",
     category: "Data Warehousing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbmI4qzw9aKN10SrL4XJ7pQ6bcb41D-A5K6g&s",
+    image: informatica,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -752,7 +836,7 @@ export const courses = [
     id: 55,
     title: "Informatica MDM Training",
     category: "Data Warehousing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVfJONvnvmLgPfZfQvmmJh7HVfVDtZgWAeA&s",
+    image: informatica_mdm,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -766,7 +850,7 @@ export const courses = [
     id: 56,
     title: "Big Data Hadoop Developer Certification Training Course",
     category: "Data Warehousing",
-    image: "https://unicatlearning.com/wp-content/uploads/2019/11/Untitled-design-23.png",
+    image: big_data_hadoop,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -780,7 +864,7 @@ export const courses = [
     id: 57,
     title: "QlikView Training",
     category: "Data Warehousing",
-    image: "https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1551437392/img/co_img_1419_1624254990.png",
+    image: qlikview,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -794,7 +878,7 @@ export const courses = [
     id: 58,
     title: "DataStage Online Training",
     category: "Data Warehousing",
-    image: "https://www.acte.in/wp-content/uploads/2020/04/datastage-training-acte.jpg",
+    image: datastage,
     rating: 5.0,
     ratingsCount: 1954,
     level: "Beginner",
@@ -808,7 +892,7 @@ export const courses = [
     id: 59,
     title: "Pentaho Training",
     category: "Data Warehousing",
-    image: "https://cdn.mindmajix.com/courses/penhaho-training-120620.png",
+    image: pentaho,
     rating: 5.0,
     ratingsCount: 1987,
     level: "Beginner",
@@ -822,7 +906,7 @@ export const courses = [
     id: 60,
     title: "OBIEE Certification Training",
     category: "Data Warehousing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmqPc5t20_T1HVJ89Adp6nGf5ph-kerW4IJw&s",
+    image: obiee,
     rating: 5.0,
     ratingsCount: 1988,
     level: "Beginner",
@@ -836,7 +920,7 @@ export const courses = [
     id: 61,
     title: "Ab Initio Online Training",
     category: "Data Warehousing",
-    image: "https://dk291no8mdjjz.cloudfront.net/uploads/course-images/1636630351.jpg",
+    image: ab_initio,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -850,7 +934,7 @@ export const courses = [
     id: 62,
     title: "Congos Online Training",
     category: "Data Warehousing",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTMIUlFBVESJDq4NP66EgC4yJCSdollFgTt29orlwR817hs24QoInOcydUD0MfeqpR6Dg&usqp=CAU",
+    image: cognos,
     rating: 5.0,
     ratingsCount: 1988,
     level: "Beginner",
@@ -865,7 +949,7 @@ export const courses = [
     id: 63,
     title: "MySQL Online Training",
     category: "Database Developer",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiNf2mu6_wiMyKbLX6K2u73fpvMGxQO8bNdw&s",
+    image: mysql,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -879,7 +963,7 @@ export const courses = [
     id: 64,
     title: "MongoDB Online Training",
     category: "Database Developer",
-    image: "https://cdn.shopaccino.com/igmguru/products/mongo-db-xl2-435424047415284_m.jpg?v=531",
+    image: mongodb,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -893,7 +977,7 @@ export const courses = [
     id: 65,
     title: "SQL Server DBA Training",
     category: "Database Developer",
-    image: "https://oraniumtech.com/wp-content/uploads/2022/12/MS-SQL-Server-DBA-Training.png",
+    image: sql_server_dba,
     rating: 5.0,
     ratingsCount: 1978,
     level: "Beginner",
@@ -907,7 +991,7 @@ export const courses = [
     id: 66,
     title: "Apache Cassandra Certification Training",
     category: "Database Developer",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDOapkjKin0nMYruWmE7qNcPfWLrdc2q3FAQ&s",
+    image: apache,
     rating: 5.0,
     ratingsCount: 2285,
     level: "Beginner",
@@ -921,7 +1005,7 @@ export const courses = [
     id: 67,
     title: "Teradata Certification Training",
     category: "Database Developer",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv-s9aXaxxGTqN47hwhYLE3YRxRKbnxpAufg&s",
+    image: teradata,
     rating: 5.0,
     ratingsCount: 2285,
     level: "Beginner",
@@ -935,7 +1019,7 @@ export const courses = [
     id: 68,
     title: "SQL Server Online Training",
     category: "Database Developer",
-    image: "https://cdn.mindmajix.com/courses/sql-server-training.png",
+    image: sql_server,
     rating: 5.0,
     ratingsCount: 2019,
     level: "Beginner",
@@ -950,7 +1034,7 @@ export const courses = [
     id: 69,
     title: "Blue Prism Training",
     category: "Robotic Process Automation",
-    image: "https://cdn.shopaccino.com/igmguru/products/blueprism-rpa-igmguru_1937028304_l.jpg?v=532",
+    image: blueprism,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -964,7 +1048,7 @@ export const courses = [
     id: 70,
     title: "UiPath Online Training and Certification Course",
     category: "Robotic Process Automation",
-    image: "https://5.imimg.com/data5/UF/IL/MY-78573598/uipath-training-250x250.jpg",
+    image: uipath,
     rating: 5.0,
     ratingsCount: 1980,
     level: "Beginner",
@@ -978,7 +1062,7 @@ export const courses = [
     id: 71,
     title: "OpenSpan Online Training",
     category: "Robotic Process Automation",
-    image: "https://winsomesoft.com/wp-content/uploads/2019/03/OpenSpan-Training.png",
+    image: openspan,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -992,7 +1076,7 @@ export const courses = [
     id: 72,
     title: "RPA Online Training and Certification Course",
     category: "Robotic Process Automation",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMF5lX1D7bCjHQo9SflTwspJg5pbwM2AxW9g&s",
+    image: rpa,
     rating: 5.0,
     ratingsCount: 1998,
     level: "Beginner",
@@ -1007,7 +1091,7 @@ export const courses = [
     id: 73,
     title: "Power BI Certification Training Course",
     category: "Microsoft Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKlBqRVtynGy79CldILvxhEOJAQ_qKtYTw8w&s",
+    image: powerbi,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -1021,7 +1105,7 @@ export const courses = [
     id: 74,
     title: "Microsoft Azure Online Training",
     category: "Microsoft Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQILBnDO8Ttw2iuE3fv03ct9cWFzPLUr8nNgw&s",
+    image: microsoft_azure,
     rating: 5.0,
     ratingsCount: 1989,
     level: "Beginner",
@@ -1035,7 +1119,7 @@ export const courses = [
     id: 75,
     title: "Microsoft Dynamics CRM Certification Training Course",
     category: "Microsoft Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnTHbhSAsuB6ZnEPgYXy_rIjvpAVwr2sHmPg&s",
+    image: microsoft_dynamics,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -1049,7 +1133,7 @@ export const courses = [
     id: 76,
     title: "PowerShell Training",
     category: "Microsoft Training",
-    image: "https://dk291no8mdjjz.cloudfront.net/uploads/course-images/1701166055.jpg",
+    image: powershell,
     rating: 5.0,
     ratingsCount: 1960,
     level: "Beginner",
@@ -1064,7 +1148,7 @@ export const courses = [
     id: 77,
     title: "Microsoft Excel Training",
     category: "Project Management",
-    image: "https://img-c.udemycdn.com/course/240x135/6361859_a703.jpg",
+    image: microsoft_excel,
     rating: 5.0,
     ratingsCount: 1987,
     level: "Beginner",
@@ -1078,7 +1162,7 @@ export const courses = [
     id: 78,
     title: "Primvera P6 Online Training",
     category: "Project Management",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-pcsHCQSFjX1f6B4O-wq2CTAG6ZNLeWnwjoQdiifPIiEtq8B-Rn64lXHMSlQhcdoeWE&usqp=CAU",
+    image: primvera_p6,
     rating: 5.0,
     ratingsCount: 1950,
     level: "Beginner",
@@ -1092,7 +1176,7 @@ export const courses = [
     id: 79,
     title: "Scrum Master Online Traiing",
     category: "Project Management",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCkWjeJX9J3zp3mvVgWUiXr6X1r7D1pcXaqw&s",
+    image: scrum_master,
     rating: 5.0,
     ratingsCount: 2285,
     level: "Beginner",
@@ -1107,7 +1191,7 @@ export const courses = [
     id: 80,
     title: "Ethical Hacking Online Course",
     category: "Other Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8__fMeRYVVFp85cG891Pr4RPdDLIMJx3T3Q&s",
+    image: ethical_learning,
     rating: 5.0,
     ratingsCount: 1875,
     level: "Beginner",
@@ -1121,7 +1205,7 @@ export const courses = [
     id: 81,
     title: "Blockchain Training Course",
     category: "Other Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkwQ-JuBYMCit591LmV0TcEOspBFt5dFtrCQ&s",
+    image: blockchain,
     rating: 5.0,
     ratingsCount: 1965,
     level: "Beginner",
@@ -1135,7 +1219,7 @@ export const courses = [
     id: 82,
     title: "MuleSoft Certification Training",
     category: "Other Training",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNj4e04ixDSskmUiWGJuJJAZL4FrMWKAgb4Q&s",
+    image: mulesoft,
     rating: 5.0,
     ratingsCount: 1988,
     level: "Beginner",
@@ -1144,8 +1228,5 @@ export const courses = [
     originalPrice: 55000,
     discount: 9,
     modes: ["Online |", "One To One"]
-  },
-
-
-  
+  }, 
 ];

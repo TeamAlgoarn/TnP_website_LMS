@@ -3,6 +3,8 @@ import { Clock, Users, Award, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { courses } from "../data/courses";
 import CourseCard from "../components/CourseCard";
+import bgImage from '../assets/images/Courses/background.jpeg';
+
 
 const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState("Cloud Computing");
@@ -114,7 +116,10 @@ const Courses = () => {
     <div className="bg-black text-white overflow-hidden">
       {/* Hero Section */}
       <section ref={heroRef} className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${bgImage})` }}>
+        </div>
         <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
           heroVisible 
             ? 'opacity-100 translate-y-0' 
