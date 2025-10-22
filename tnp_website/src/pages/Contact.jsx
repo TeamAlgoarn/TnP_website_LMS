@@ -120,20 +120,20 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6" />,
       title: 'Phone',
-      details: ['+91 98765 43210', '+91 91234 56789'],
+      details: ['+91 8884457701'],
       subtitle: 'Mon-Sat 9am-7pm',
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
-      details: ['info@careerpro.in', 'admissions@careerpro.in'],
+      details: ['info@learnovia.in'],
       subtitle: 'We reply within 2 hours',
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: 'Address',
-      details: ['Tech Park, Sector 62', 'Noida, Uttar Pradesh 201309'],
-      subtitle: 'Visit our Noida campus',
+      details: ['Pole Workspaces 33/2 Racha, Galaxy 21st,', 'Marenahalli, Bangalore North, Vijayanagar,', 'Bangalore, Karnataka-560040'],
+      subtitle: 'Visit our Bangalore campus',
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -186,7 +186,7 @@ const Contact = () => {
             data-animate-id="hero-title"
             className={getAnimationClass('hero-title')}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch with CareerPro</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch with Learnovia</h1>
           </div>
           <div 
             data-animate-id="hero-subtitle"
@@ -333,23 +333,24 @@ const Contact = () => {
                 data-animate-id="map-section"
                 className={getAnimationClass('map-section', 'bg-gray-900 p-6 rounded-lg delay-500')}
               >
-                <h3 className="font-semibold mb-4">Find Our Noida Campus</h3>
+                <h3 className="font-semibold mb-4">Find Our Bangalore Campus</h3>
                 <div className="bg-gray-800 h-64 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="h-12 w-12 text-yellow-400 mx-auto mb-2" />
-                    <p className="text-gray-400">Tech Park, Sector 62</p>
-                    <p className="text-gray-500 text-sm">Noida, Uttar Pradesh 201309</p>
-                    <p className="text-gray-500 text-xs mt-2">Easy access from Delhi NCR</p>
+                    <p className="text-gray-400">Pole Workspaces 33/2 Racha, Galaxy 21st</p>
+                    <p className="text-gray-400">Marenahalli, Bangalore North, Vijayanagar</p>
+                    <p className="text-gray-500 text-sm">Bangalore, Karnataka-560040</p>
+                    <p className="text-gray-500 text-xs mt-2">Easily accessible location</p>
                   </div>
                 </div>
               </div>
 
-              {/* CareerPro India Stats */}
+              {/* Learnovia India Stats */}
               <div 
                 data-animate-id="stats-section"
                 className={getAnimationClass('stats-section', 'bg-gradient-to-br from-yellow-400 to-yellow-500 p-6 rounded-lg text-black delay-600')}
               >
-                <h3 className="font-semibold mb-4 text-center">CareerPro India Impact</h3>
+                <h3 className="font-semibold mb-4 text-center">Learnovia India Impact</h3>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold">850+</div>
@@ -425,9 +426,9 @@ const Contact = () => {
               <Phone className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">24/7 Student Support</h3>
               <div className="space-y-2 text-gray-300">
-                <p>For current students: +91 98765 43210</p>
+                <p>For current students: +91 8884457701</p>
                 <p>Emergency line available 24/7</p>
-                <p>Email: support@careerpro.in</p>
+                <p>Email: info@learnovia.in</p>
               </div>
               <p className="text-yellow-400 mt-4">We're here when you need us across India</p>
             </div>
@@ -447,7 +448,7 @@ const Contact = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { city: 'Bangalore', address: 'Koramangala, 560034' },
+              { city: 'Bangalore', address: 'Vijayanagar, 560040' },
               { city: 'Hyderabad', address: 'HITEC City, 500081' },
               { city: 'Pune', address: 'Hinjewadi, 411057' },
               { city: 'Chennai', address: 'Tidel Park, 600113' }

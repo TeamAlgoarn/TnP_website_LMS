@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Star, ArrowRight } from 'lucide-react';
+import { placementsData, placements } from '../data/placements';
 
 const Placements = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
-  const [visibleSections, setVisibleSections] = useState(new Set());
   const statsRef = useRef(null);
   const navigate = useNavigate();
 
@@ -121,212 +121,25 @@ const Placements = () => {
     navigate('/courses');
   };
 
-  const stats = [
-    { number: 78, suffix: '%', label: 'Placement Rate', icon: <TrendingUp className="h-6 w-6" /> },
-    { number: 9, suffix: 'LPA', label: 'Average Package', icon: <Award className="h-6 w-6" />, prefix: '₹' },
-    { number: 120, suffix: '+', label: 'Partner Companies', icon: <Building2 className="h-6 w-6" /> },
-    { number: 850, suffix: '+', label: 'Alumni Placed', icon: <Users className="h-6 w-6" /> },
-  ];
-
-  const companies = [
-    {
-      name: "TCS",
-      logo: "https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service-1920x1144.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Infosys",
-      logo: "https://www.infosys.com/content/dam/infosys-web/en/global-resource/media-resources/infosys-logo-png.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Wipro",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Wipro_Logo_2023.svg/2560px-Wipro_Logo_2023.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "HCL Technologies",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/HCL_Technologies_logo.svg/2560px-HCL_Technologies_logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Tech Mahindra",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Tech_Mahindra_Logo.svg/2560px-Tech_Mahindra_Logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Accenture",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/2560px-Accenture.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Cognizant",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Cognizant_logo_2022.svg/2560px-Cognizant_logo_2022.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Capgemini",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Capgemini_Logo.svg/2560px-Capgemini_Logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "IBM India",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Microsoft India",
-      logo: "https://logosmarcas.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Amazon India",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Google India",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-      tier: 'Premium'
-    },
-    {
-      name: "Dell India",
-      logo: "https://static.vecteezy.com/system/resources/previews/021/514/860/original/dell-logo-brand-computer-symbol-white-design-usa-laptop-illustration-with-black-background-free-vector.jpg",
-      tier: 'Premium'
-    },
-    {
-      name: "Intel India",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/2560px-Intel_logo_%282006-2020%29.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Oracle India",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "SAP India",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Mindtree",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mindtree_logo.svg/2560px-Mindtree_logo.svg.png",
-      tier: 'Standard'
-    },
-    {
-      name: "L&T Infotech",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/LTI_Logo.svg/2560px-LTI_Logo.svg.png",
-      tier: 'Standard'
-    },
-    {
-      name: "Mphasis",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mphasis_logo.svg/2560px-Mphasis_logo.svg.png",
-      tier: 'Standard'
-    },
-    {
-      name: "Hexaware",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hexaware_Technologies_logo.svg/2560px-Hexaware_Technologies_logo.svg.png",
-      tier: 'Standard'
-    }
-  ];
-
-  const successStories = [
-    {
-      name: 'Priya Sharma',
-      role: 'Software Engineer',
-      company: 'Infosys',
-      package: '₹12 LPA',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
-      story: 'From a small town in Uttar Pradesh to Infosys Bangalore. CareerPro\'s training and placement support helped me achieve my dreams in just 6 months.',
-      course: 'Full Stack Development',
-      rating: 5,
-    },
-    {
-      name: 'Rajesh Kumar',
-      role: 'Data Analyst',
-      company: 'TCS',
-      package: '₹9 LPA',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
-      story: 'As a mechanical engineer, I never thought I could switch to IT. CareerPro made it possible with their structured Data Science program and dedicated placement cell.',
-      course: 'Data Science & Analytics',
-      rating: 5,
-    },
-    {
-      name: 'Anjali Patel',
-      role: 'Cloud Engineer',
-      company: 'Wipro',
-      package: '₹14 LPA',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
-      story: 'The AWS certification and real-time projects at CareerPro gave me the confidence to crack Wipro interviews. Got placed even before course completion!',
-      course: 'Cloud Computing & DevOps',
-      rating: 5,
-    },
-    {
-      name: 'Arun Mehta',
-      role: 'Mobile Developer',
-      company: 'Tech Mahindra',
-      package: '₹11 LPA',
-      image: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
-      story: 'Coming from a non-IT background, CareerPro\'s mobile development course was perfectly structured. The placement team ensured I got multiple offers.',
-      course: 'Mobile App Development',
-      rating: 5,
-    },
-    {
-      name: 'Sneha Reddy',
-      role: 'Cybersecurity Analyst',
-      company: 'HCL Technologies',
-      package: '₹13 LPA',
-      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
-      story: 'The cybersecurity program at CareerPro is industry-relevant. Got placed at HCL with a great package and working on exciting security projects.',
-      course: 'Cybersecurity Specialist',
-      rating: 5,
-    },
-    {
-      name: 'Vikram Singh',
-      role: 'UI/UX Designer',
-      company: 'Accenture',
-      package: '₹10 LPA',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
-      story: 'CareerPro helped me transition from graphic design to UI/UX. The portfolio building sessions and mock interviews were incredibly helpful for Accenture.',
-      course: 'UI/UX Design',
-      rating: 5,
-    }
-  ];
-
-  const placementProcess = [
-    {
-      step: '1',
-      title: 'Skill Assessment',
-      description: 'Comprehensive evaluation of technical and soft skills to identify strengths and areas for improvement.',
-    },
-    {
-      step: '2',
-      title: 'Resume Building',
-      description: 'Professional resume creation with industry-specific keywords and achievement highlighting.',
-    },
-    {
-      step: '3',
-      title: 'Interview Prep',
-      description: 'Mock interviews, technical assessments, and behavioral question preparation.',
-    },
-    {
-      step: '4',
-      title: 'Company Matching',
-      description: 'Strategic matching with partner companies based on skills, preferences, and career goals.',
-    },
-    {
-      step: '5',
-      title: 'Offer Negotiation',
-      description: 'Support in salary negotiation and contract terms to ensure the best possible package.',
-    },
-  ];
+  // Icon mapping
+  const iconComponents = {
+    TrendingUp: <TrendingUp className="h-6 w-6" />,
+    Award: <Award className="h-6 w-6" />,
+    Building2: <Building2 className="h-6 w-6" />,
+    Users: <Users className="h-6 w-6" />
+  };
 
   return (
     <div className="bg-black text-white overflow-hidden">
       {/* Hero Section */}
       <section ref={heroRef} className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg')] bg-cover bg-center opacity-20"></div>
+        {/* New background image - using a reliable Unsplash URL */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        ></div>
         <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
           heroVisible 
             ? 'opacity-100 translate-y-0' 
@@ -360,11 +173,12 @@ const Placements = () => {
         </div>
       </section>
 
+      {/* Rest of the component remains exactly the same */}
       {/* Placement Stats */}
       <section ref={statsRef} className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
+            {placementsData.stats.map((stat, index) => {
               const count = useCounter(stat.number, 2000, statsAnimated);
               return (
                 <div 
@@ -379,7 +193,7 @@ const Placements = () => {
                   <div className={`bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-500 hover:scale-110 hover:rotate-12 ${
                     statsAnimated ? 'animate-bounce' : ''
                   }`} style={{ animationDelay: `${index * 200}ms`, animationDuration: '1s', animationFillMode: 'both' }}>
-                    {stat.icon}
+                    {iconComponents[stat.icon]}
                   </div>
                   <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
                     {stat.prefix || ''}{count}{stat.suffix}
@@ -406,7 +220,7 @@ const Placements = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {companies.map((company, index) => (
+            {placementsData.companies.map((company, index) => (
               <div 
                 key={index} 
                 className={`bg-gray-900 p-6 rounded-lg text-center hover:bg-gray-800 transition-all duration-500 hover:-translate-y-4 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/20 hover:border hover:border-yellow-400/50 ${
@@ -417,10 +231,10 @@ const Placements = () => {
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
                 <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="w-20 h-20 mx-auto transition-transform duration-300 hover:scale-110"
-                  />
+                  src={company.logo}
+                  alt={company.name}
+                  className="w-20 h-20 mx-auto transition-transform duration-300 hover:scale-110"
+                />
                 <h3 className="font-semibold mb-1 transition-colors duration-300 hover:text-yellow-400">{company.name}</h3>
                 <span className={`text-xs px-2 py-1 rounded transition-all duration-300 ${
                   company.tier === 'Premium' 
@@ -449,7 +263,7 @@ const Placements = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {successStories.map((story, index) => (
+            {placementsData.successStories.map((story, index) => (
               <div 
                 key={index} 
                 className={`bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-4 hover:shadow-2xl hover:shadow-yellow-400/30 hover:border-yellow-400/70 group transition-all duration-500 cursor-pointer hover:scale-105 ${
@@ -500,7 +314,7 @@ const Placements = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {placementProcess.map((process, index) => (
+            {placementsData.placementProcess.map((process, index) => (
               <div 
                 key={index} 
                 className={`text-center hover:-translate-y-4 transition-all duration-500 hover:scale-110 ${
@@ -537,35 +351,7 @@ const Placements = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Entry Level (0-2 years)',
-                roles: [
-                  { name: 'Software Developer', range: '₹6 - ₹12 LPA' },
-                  { name: 'Data Analyst', range: '₹5 - ₹10 LPA' },
-                  { name: 'UI/UX Designer', range: '₹4 - ₹8 LPA' },
-                  { name: 'Cloud Associate', range: '₹7 - ₹13 LPA' }
-                ]
-              },
-              {
-                title: 'Mid Level (2-5 years)',
-                roles: [
-                  { name: 'Senior Developer', range: '₹12 - ₹20 LPA' },
-                  { name: 'Data Scientist', range: '₹15 - ₹25 LPA' },
-                  { name: 'Product Designer', range: '₹10 - ₹18 LPA' },
-                  { name: 'DevOps Engineer', range: '₹14 - ₹22 LPA' }
-                ]
-              },
-              {
-                title: 'Senior Level (5+ years)',
-                roles: [
-                  { name: 'Tech Lead', range: '₹22 - ₹35 LPA' },
-                  { name: 'Principal Engineer', range: '₹30 - ₹50 LPA' },
-                  { name: 'Design Director', range: '₹20 - ₹32 LPA' },
-                  { name: 'Solutions Architect', range: '₹25 - ₹40 LPA' }
-                ]
-              }
-            ].map((level, index) => (
+            {placementsData.salaryRanges.map((level, index) => (
               <div 
                 key={index} 
                 className={`bg-black p-6 rounded-lg border border-gray-800 hover:-translate-y-4 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/20 hover:border-yellow-400/50 ${

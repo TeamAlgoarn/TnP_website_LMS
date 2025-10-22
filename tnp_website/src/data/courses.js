@@ -80,8 +80,6 @@ import uipath from '../assets/images/CourseCards/uipath.webp';
 import unix_shell from '../assets/images/CourseCards/unix_shell.png';
 import workday from '../assets/images/CourseCards/workday.jpeg';
 
-
-
 export const courses = [
   {
     id: 1,
@@ -92,9 +90,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2360,
-    discountedPrice: 30000,
-    originalPrice: 35000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -106,9 +101,6 @@ export const courses = [
     ratingsCount: 2450,
     level: "Beginner",
     learners: 2245,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -120,9 +112,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 1789,
-    discountedPrice: 40000,
-    originalPrice: 50000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -134,9 +123,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -148,9 +134,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -162,9 +145,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 28000,
-    originalPrice: 31000,
-    discount: 10,
     modes: ["Online |", "One To One"]
   },
   {
@@ -176,9 +156,6 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 55000,
-    originalPrice: 65000,
-    discount: 15,
     modes: ["Online |", "One To One"]
   },
   {
@@ -190,9 +167,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 18000,
-    originalPrice: 25000,
-    discount: 28,
     modes: ["Online |", "One To One"]
   },
   {
@@ -204,12 +178,8 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 23000,
-    originalPrice: 28000,
-    discount: 18,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 10,
     title: "Machine Learning Certification Course",
@@ -219,9 +189,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2360,
-    discountedPrice: 30000,
-    originalPrice: 35000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -233,9 +200,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 40000,
-    originalPrice: 50000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -247,9 +211,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 15000,
-    originalPrice: 20000,
-    discount: 25,
     modes: ["Online |", "One To One"]
   },
   {
@@ -261,9 +222,6 @@ export const courses = [
     ratingsCount: 3590,
     level: "Beginner",
     learners: 3345,
-    discountedPrice: 35000,
-    originalPrice: 25000,
-    discount: 22,
     modes: ["Online |", "One To One"]
   },
   {
@@ -275,9 +233,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2245,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -289,12 +244,8 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 16,
     title: "Kubernetes Online Training and Certification Course",
@@ -304,9 +255,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2245,
-    discountedPrice: 25000,
-    originalPrice: 35000,
-    discount: 29,
     modes: ["Online |", "One To One"]
   },
   {
@@ -318,9 +266,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2265,
-    discountedPrice: 16000,
-    originalPrice: 25000,
-    discount: 36,
     modes: ["Online |", "One To One"]
   },
   {
@@ -332,9 +277,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -346,9 +288,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 15000,
-    originalPrice: 20000,
-    discount: 25,
     modes: ["Online |", "One To One"]
   },
   {
@@ -360,9 +299,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 16000,
-    originalPrice: 18000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -374,9 +310,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 40000,
-    originalPrice: 50000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -388,9 +321,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 18000,
-    originalPrice: 28000,
-    discount: 36,
     modes: ["Online |", "One To One"]
   },
   {
@@ -402,12 +332,8 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 13000,
-    originalPrice: 18000,
-    discount: 28,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 24,
     title: "Python Programming Online Training Course",
@@ -417,9 +343,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2250,
-    discountedPrice: 20000,
-    originalPrice: 21000,
-    discount: 5,
     modes: ["Online |", "One To One"]
   },
   {
@@ -431,9 +354,6 @@ export const courses = [
     ratingsCount: 1967,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -445,9 +365,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 21500,
-    originalPrice: 25000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -459,9 +376,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 30000,
-    originalPrice: 350000,
-    discount: 91,
     modes: ["Online |", "One To One"]
   },
   {
@@ -473,9 +387,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 1345,
-    discountedPrice: 20000,
-    originalPrice:25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -487,9 +398,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 13000,
-    originalPrice: 18000,
-    discount: 28,
     modes: ["Online |", "One To One"]
   },
   {
@@ -501,9 +409,6 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -515,9 +420,6 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 15000,
-    originalPrice: 18000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -529,9 +431,6 @@ export const courses = [
     ratingsCount: 1952,
     level: "Beginner",
     learners: 2495,
-    discountedPrice: 23000,
-    originalPrice: 20000,
-    discount: 18,
     modes: ["Online |", "One To One"]
   },
   {
@@ -543,9 +442,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 25000,
-    originalPrice: 30000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -557,9 +453,6 @@ export const courses = [
     ratingsCount: 1988,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 30000,
-    originalPrice: 35000,
-    discount: 18,
     modes: ["Online |", "One To One"]
   },
   {
@@ -571,12 +464,8 @@ export const courses = [
     ratingsCount: 1988,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 18000,
-    originalPrice: 23000,
-    discount: 22,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 37,
     title: "LoadRuner Online Training",
@@ -586,9 +475,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2345,
-    discountedPrice: 25000,
-    originalPrice: 30000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -600,9 +486,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -614,9 +497,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 21186.4,
-    originalPrice: 25000,
-    discount: 16,
     modes: ["Online |", "One To One"]
   },
   {
@@ -628,9 +508,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -642,9 +519,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 18000,
-    originalPrice: 28000,
-    discount: 36,
     modes: ["Online |", "One To One"]
   },
   {
@@ -656,9 +530,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -670,9 +541,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -684,9 +552,6 @@ export const courses = [
     ratingsCount: 1988,
     level: "Beginner",
     learners: 2009,
-    discountedPrice: 25000,
-    originalPrice: 30000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -698,12 +563,8 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2365,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 46,
     title: "Online Digital Marketing Courses",
@@ -713,12 +574,8 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2245,
-    discountedPrice: 20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 47,
     title: "Angular Online Training",
@@ -728,9 +585,6 @@ export const courses = [
     ratingsCount: 2450,
     level: "Beginner",
     learners: 2345,
-    discountedPrice: 15000,
-    originalPrice: 18000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -742,9 +596,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 20000,
-    originalPrice: 23000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -756,9 +607,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2136,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -770,9 +618,6 @@ export const courses = [
     ratingsCount: 1976,
     level: "Beginner",
     learners: 2087,
-    discountedPrice: 13000,
-    originalPrice: 20000,
-    discount: 35,
     modes: ["Online |", "One To One"]
   },
   {
@@ -784,9 +629,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 13000,
-    originalPrice: 23000,
-    discount: 43,
     modes: ["Online |", "One To One"]
   },
   {
@@ -798,9 +640,6 @@ export const courses = [
     ratingsCount: 1987,
     level: "Beginner",
     learners: 2043,
-    discountedPrice: 15000,
-    originalPrice: 18000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -812,12 +651,8 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 16000,
-    originalPrice: 23000,
-    discount: 30,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 54,
     title: "Informatica Certification Training Online",
@@ -827,9 +662,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 30000,
-    originalPrice: 35000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -841,9 +673,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 60000,
-    originalPrice: 65000,
-    discount: 8,
     modes: ["Online |", "One To One"]
   },
   {
@@ -855,9 +684,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 29499,
-    originalPrice: 30000,
-    discount: 2,
     modes: ["Online |", "One To One"]
   },
   {
@@ -869,9 +695,6 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice:40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
   {
@@ -883,9 +706,6 @@ export const courses = [
     ratingsCount: 1954,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 25423,
-    originalPrice:38000,
-    discount: 33,
     modes: ["Online |", "One To One"]
   },
   {
@@ -897,9 +717,6 @@ export const courses = [
     ratingsCount: 1987,
     level: "Beginner",
     learners: 2045,
-    discountedPrice:20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -911,9 +728,6 @@ export const courses = [
     ratingsCount: 1988,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -925,9 +739,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 50000,
-    originalPrice: 60000,
-    discount:  17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -939,12 +750,8 @@ export const courses = [
     ratingsCount: 1988,
     level: "Beginner",
     learners: 2035,
-    discountedPrice: 20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 63,
     title: "MySQL Online Training",
@@ -954,9 +761,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2360,
-    discountedPrice: 14000,
-    originalPrice: 18000,
-    discount: 22,
     modes: ["Online |", "One To One"]
   },
   {
@@ -968,9 +772,6 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2090,
-    discountedPrice: 18000,
-    originalPrice: 24000,
-    discount: 25,
     modes: ["Online |", "One To One"]
   },
   {
@@ -982,9 +783,6 @@ export const courses = [
     ratingsCount: 1978,
     level: "Beginner",
     learners: 2120,
-    discountedPrice: 30000,
-    originalPrice: 35000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -996,9 +794,6 @@ export const courses = [
     ratingsCount: 2285,
     level: "Beginner",
     learners: 2495,
-    discountedPrice: 15000,
-    originalPrice: 20000,
-    discount: 25,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1010,9 +805,6 @@ export const courses = [
     ratingsCount: 2285,
     level: "Beginner",
     learners: 2295,
-    discountedPrice: 18000,
-    originalPrice: 23000,
-    discount: 22,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1024,12 +816,8 @@ export const courses = [
     ratingsCount: 2019,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice : 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 69,
     title: "Blue Prism Training",
@@ -1039,9 +827,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 15000,
-    originalPrice: 18000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1053,9 +838,6 @@ export const courses = [
     ratingsCount: 1980,
     level: "Beginner",
     learners: 2090,
-    discountedPrice: 30000,
-    originalPrice: 35000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1067,9 +849,6 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 18000,
-    originalPrice: 23000,
-    discount: 22,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1081,12 +860,8 @@ export const courses = [
     ratingsCount: 1998,
     level: "Beginner",
     learners: 2056,
-    discountedPrice: 35000,
-    originalPrice: 40000,
-    discount: 13,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 73,
     title: "Power BI Certification Training Course",
@@ -1096,9 +871,6 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 20000,
-    originalPrice: 25000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1110,9 +882,6 @@ export const courses = [
     ratingsCount: 1989,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 25000,
-    originalPrice: 23000,
-    discount: 20,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1124,9 +893,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1138,12 +904,8 @@ export const courses = [
     ratingsCount: 1960,
     level: "Beginner",
     learners: 2045,
-    discountedPrice: 35000,
-    originalPrice: 45000,
-    discount: 22,
     modes: ["Online |", "One To One"]
   },
-  
   {
     id: 77,
     title: "Microsoft Excel Training",
@@ -1153,9 +915,6 @@ export const courses = [
     ratingsCount: 1987,
     level: "Beginner",
     learners: 2035,
-    discountedPrice: 23700,
-    originalPrice: 25000,
-    discount: 5,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1167,9 +926,6 @@ export const courses = [
     ratingsCount: 1950,
     level: "Beginner",
     learners: 2245,
-    discountedPrice: 25000,
-    originalPrice: 30000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1181,12 +937,8 @@ export const courses = [
     ratingsCount: 2285,
     level: "Beginner",
     learners: 2495,
-    discountedPrice: 40000,
-    originalPrice: 45000,
-    discount: 11,
     modes: ["Online |", "One To One"]
   },
-
   {
     id: 80,
     title: "Ethical Hacking Online Course",
@@ -1196,9 +948,6 @@ export const courses = [
     ratingsCount: 1875,
     level: "Beginner",
     learners: 2085,
-    discountedPrice: 35000,
-    originalPrice: 23000,
-    discount: 14,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1210,9 +959,6 @@ export const courses = [
     ratingsCount: 1965,
     level: "Beginner",
     learners: 2051,
-    discountedPrice: 30000,
-    originalPrice: 36000,
-    discount: 17,
     modes: ["Online |", "One To One"]
   },
   {
@@ -1224,9 +970,6 @@ export const courses = [
     ratingsCount: 1988,
     level: "Beginner",
     learners: 2095,
-    discountedPrice: 50000,
-    originalPrice: 55000,
-    discount: 9,
     modes: ["Online |", "One To One"]
-  }, 
+  }
 ];

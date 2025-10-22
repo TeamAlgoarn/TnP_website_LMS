@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, GraduationCap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logo from '../assets/images/Learnovia_logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,11 +22,14 @@ const Header = () => {
     <header className="bg-black/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-            {/* dummy logo and name */}
+          {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-yellow-400" />
-              <span className="text-xl font-bold text-white">CareerPro</span>
+            <Link to="/" className="flex items-center">
+              <img 
+                src={logo} 
+                alt="Learnovia Logo" 
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 

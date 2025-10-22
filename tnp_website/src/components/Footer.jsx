@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import logo from '../assets/images/Learnovia_logo.png';
 
 const Footer = () => {
   return (
@@ -9,9 +10,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <GraduationCap className="h-8 w-8 text-yellow-400" />
-              <span className="text-xl font-bold text-white">CareerPro</span>
+            <div className="flex items-center mb-4">
+              <img 
+                src={logo} 
+                alt="Learnovia Logo" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
               Empowering careers through comprehensive training programs and guaranteed placement support. 
@@ -50,16 +54,24 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-gray-400">
-                <Mail className="h-4 w-4" />
-                <span>info@careerpro.com</span>
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <a href="mailto:info@learnovia.in" className="hover:text-yellow-400 transition-colors">
+                  info@learnovia.in
+                </a>
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
-                <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <a href="tel:+918884457701" className="hover:text-yellow-400 transition-colors">
+                  +91 8884457701
+                </a>
               </li>
               <li className="flex items-start space-x-2 text-gray-400">
-                <MapPin className="h-4 w-4 mt-1" />
-                <span>123 Education Street<br />Tech City, TC 12345</span>
+                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                <span>
+                  Pole Workspaces 33/2 Racha,<br />
+                  Galaxy 21st, Marenahalli, Bangalore North, Vijayanagar,<br />
+                  Bangalore, Karnataka-560040
+                </span>
               </li>
             </ul>
           </div>
@@ -67,7 +79,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 CareerPro Training & Placement Centre. All rights reserved.
+            © 2025 Learnovia Training & Placement Centre. All rights reserved.
           </p>
         </div>
       </div>

@@ -50,7 +50,7 @@ const CourseCard = ({ course }) => {
       </p>
 
       {/* Pricing */}
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <span className="text-xl font-bold">
           ₹{course.discountedPrice}
         </span>
@@ -60,7 +60,7 @@ const CourseCard = ({ course }) => {
         <span className="text-red-600 ml-2 text-sm font-semibold">
           ({course.discount}% off)
         </span>
-      </div>
+      </div> */}
 
       {/* Buttons */}
       <div className="flex gap-3">

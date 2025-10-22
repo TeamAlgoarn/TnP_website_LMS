@@ -291,13 +291,13 @@ const About = () => {
               }`}
               style={{ transitionDelay: '300ms' }}
             >
-              <div className="relative mb-6">
+              {/* <div className="relative mb-6">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
                   alt="Anand B"
                   className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-yellow-400"
                 />
-              </div>
+              </div> */}
               <h3 className="text-xl font-semibold mb-2">Anand B</h3>
               <p className="text-yellow-400 mb-3">Founder & CEO</p>
               <p className="text-gray-400 text-sm max-w-xs">
