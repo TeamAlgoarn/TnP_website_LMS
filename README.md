@@ -1,5 +1,5 @@
 # TnP_website_LMS
-This repository consist of all the development files related to training and placement website followed by LMS platform.
+This repository consist of all the development files related to learnovia website followed by LMS platform.
 
 ## Maintain the below folder structure
 
