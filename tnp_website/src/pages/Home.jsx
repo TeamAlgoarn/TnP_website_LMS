@@ -143,7 +143,7 @@ const Home = () => {
     {
       name: 'Rajesh Kumar',
       role: 'Production Lead, Automotive MNC',
-      content: 'CareerPro\'s apprenticeship program reduced our onboarding costs by 40% and attrition by 60%. Trainees were productive from day one.',
+      content: 'Learnovia\'s apprenticeship program reduced our onboarding costs by 40% and attrition by 60%. Trainees were productive from day one.',
       rating: 5,
     },
     {
@@ -336,7 +336,7 @@ const Home = () => {
           <p className={`text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4 transition-all duration-1000 delay-500 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Join 850+ Indian professionals trained through CareerPro's Apprenticeship Program. 
+            Join 850+ Indian professionals trained through Learnovia's Apprenticeship Program. 
             Get NAPS-certified training with 78% placement success in 120+ partner companies including Infosys, TCS, and Wipro.
           </p>
           

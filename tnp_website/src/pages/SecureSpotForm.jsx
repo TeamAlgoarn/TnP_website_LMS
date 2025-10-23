@@ -126,7 +126,7 @@ const SecureSpotForm = () => {
           data-animate-id="enrollment-form"
           className={getAnimationClass('enrollment-form', 'bg-gray-900 p-8 rounded-lg')}
         >
-          <h2 className="text-2xl font-bold mb-6 text-center">Secure Your Spot at CareerPro</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">Secure Your Spot at Learnovia</h2>
           {isSubmitted ? (
             <div className="text-center py-8">
               <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />

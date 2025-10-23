@@ -139,7 +139,7 @@ const About = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className={`text-4xl md:text-5xl font-bold mb-6 transition-all duration-1000 delay-300 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>About CareerPro</h1>
+          }`}>About Learnovia</h1>
           <p className={`text-xl text-gray-300 max-w-3xl mx-auto transition-all duration-1000 delay-500 ${
             visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
@@ -208,7 +208,7 @@ const About = () => {
               visibleSections.has('story') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Founded in 2016 by Anand B, CareerPro began as a visionary initiative to address the growing 
+                Founded in 2016 by Anand B, Learnovia began as a visionary initiative to address the growing 
                 skill gap in India's rapidly evolving job market. Starting with a small team and a big vision 
                 to democratize access to quality technical education, we've grown into a leading training and 
                 placement center serving professionals across India.

@@ -1,5 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
+import blogImage from '../assets/images/Blog/bbg.jpeg';
+import bimg1 from '../assets/images/Blog/bimg1.jpeg';
+import bimg2 from '../assets/images/Blog/bimg2.jpeg';
+import bimg3 from '../assets/images/Blog/bimg3.jpeg';
+import bimg4 from '../assets/images/Blog/bimg4.jpeg';
+import bimg5 from '../assets/images/Blog/bimg5.jpeg';
+import bimg6 from '../assets/images/Blog/bimg6.jpeg';
+import bimg7 from '../assets/images/Blog/bimg7.jpeg';
+import bimg8 from '../assets/images/Blog/bimg8.jpeg';
 
 const Blog = () => {
   const observerRef = useRef(null);
@@ -38,7 +47,7 @@ const Blog = () => {
     excerpt: 'Explore emerging technologies, in-demand skills, and career opportunities that will shape the Indian IT industry in 2025 and beyond.',
     author: 'Anand B',
     date: '2025-01-15',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+    image: bimg1,
     tags: ['Career Advice', 'Technology Trends', 'Indian IT'],
     readTime: '8 min read',
   };
@@ -50,7 +59,7 @@ const Blog = () => {
       excerpt: 'Master the art of technical interviews with proven strategies, common questions, and expert tips from Indian IT professionals.',
       author: 'Rajesh Kumar',
       date: '2025-01-12',
-      image: 'https://images.pexels.com/photos/5439381/pexels-photo-5439381.jpeg',
+      image: bimg2,
       tags: ['Interview Tips', 'Career Advice', 'Indian Companies'],
       readTime: '6 min read',
     },
@@ -60,7 +69,7 @@ const Blog = () => {
       excerpt: 'Understanding the differences between data science and AI engineering careers in the Indian market to make an informed decision.',
       author: 'Priya Sharma',
       date: '2025-01-10',
-      image: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg',
+      image: bimg3,
       tags: ['Data Science', 'AI Engineering', 'Career Guidance'],
       readTime: '7 min read',
     },
@@ -70,7 +79,7 @@ const Blog = () => {
       excerpt: 'Step-by-step guide to creating an impressive portfolio that showcases your skills and lands you your dream job in Indian IT companies.',
       author: 'Arun Mehta',
       date: '2025-01-08',
-      image: 'https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg',
+      image: bimg4,
       tags: ['Portfolio', 'Web Development', 'Indian Developers'],
       readTime: '5 min read',
     },
@@ -80,7 +89,7 @@ const Blog = () => {
       excerpt: 'Essential tips and tools for thriving in remote work while maintaining productivity and work-life balance in Indian context.',
       author: 'Anjali Patel',
       date: '2025-01-05',
-      image: 'https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg',
+      image: bimg5,
       tags: ['Remote Work', 'Productivity', 'Indian Workforce'],
       readTime: '6 min read',
     },
@@ -90,7 +99,7 @@ const Blog = () => {
       excerpt: 'Compare popular cloud certifications from AWS, Azure, and Google Cloud to choose the right path for your career in India.',
       author: 'Vikram Singh',
       date: '2025-01-03',
-      image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg',
+      image: bimg6,
       tags: ['Cloud Computing', 'Certifications', 'AWS India', 'Azure'],
       readTime: '8 min read',
     },
@@ -100,7 +109,7 @@ const Blog = () => {
       excerpt: 'Learn how to research, prepare, and negotiate your salary effectively to maximize your earning potential in Indian IT industry.',
       author: 'Sneha Reddy',
       date: '2025-01-01',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg',
+      image: bimg7,
       tags: ['Salary Negotiation', 'Career Growth', 'Indian IT Salaries'],
       readTime: '7 min read',
     },
@@ -110,7 +119,7 @@ const Blog = () => {
       excerpt: 'Discover which programming languages are most sought after by Indian IT companies and how to master them for career success.',
       author: 'Rahul Verma',
       date: '2024-12-28',
-      image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg',
+      image: bimg8,
       tags: ['Programming', 'Career Skills', 'Indian Job Market'],
       readTime: '9 min read',
     }
@@ -185,9 +194,12 @@ const Blog = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/261662/pexels-photo-261662.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${blogImage})` }}
+        ></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="hero-title text-4xl md:text-5xl font-bold mb-6 opacity-0">CareerPro Tech Blog</h1>
+          <h1 className="hero-title text-4xl md:text-5xl font-bold mb-6 opacity-0">Learnovia Tech Blog</h1>
           <p className="hero-subtitle text-xl text-gray-300 max-w-3xl mx-auto opacity-0">
             Expert insights, career advice, and Indian IT industry trends to help you stay ahead in your tech journey.
           </p>
@@ -371,9 +383,9 @@ const Blog = () => {
                 </div>
               </div>
 
-              {/* CareerPro Stats */}
+              {/* Learnovia Stats */}
               <div className="bg-gradient-to-br from-gray-900 to-black p-6 rounded-lg border border-yellow-400/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll">
-                <h3 className="text-lg font-semibold mb-4 text-yellow-400">CareerPro Impact</h3>
+                <h3 className="text-lg font-semibold mb-4 text-yellow-400">Learnovia Impact</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Professionals Trained</span>

@@ -1,3 +1,29 @@
+import inf from '../assets/images/Companies/Infosys.jpg';
+import tcs from '../assets/images/Companies/TCS-Logo.jpg';
+import hcl from '../assets/images/Companies/Hcl.jpg';
+import wipro from '../assets/images/Companies/wipro.jpg';
+import tm from '../assets/images/Companies/Tech-Mahindra-flm-job-notifications.webp';
+import acc from '../assets/images/Companies/Accenture.webp';
+import cog from '../assets/images/Companies/cog.jpg';
+import capg from '../assets/images/Companies/capgemini.jpg';
+import ibm from '../assets/images/Companies/OIP.webp';
+import ms from '../assets/images/Companies/mslogo.jpg';
+import ama from '../assets/images/Companies/amazonINlogo.jpg';
+import ggl from '../assets/images/Companies/Google.jpg';
+import dell from '../assets/images/Companies/Dell_Logo_v_2021.webp';
+import intel from '../assets/images/Companies/Intel.jpg';
+import oracle from '../assets/images/Companies/OIP (1).webp';
+
+// testimonials
+import priya from '../assets/images/Testimonials/priya.jpeg';
+import rajesh from '../assets/images/Testimonials/rajesh.jpeg';
+import anjali from '../assets/images/Testimonials/anjali.jpeg';
+import arun from '../assets/images/Testimonials/arun.jpeg';
+import sneha from '../assets/images/Testimonials/sneha.jpeg';
+import vikram from '../assets/images/Testimonials/vikram.jpeg';
+
+
+
 export const placementsData = {
   stats: [
     { number: 78, suffix: '%', label: 'Placement Rate', icon: 'TrendingUp' },
@@ -9,104 +35,81 @@ export const placementsData = {
   companies: [
     {
       name: "TCS",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/TCS-Symbol.png",
+      logo: tcs,
       tier: 'Premium'
     },
     {
       name: "Infosys",
-      logo: "https://logos-world.net/wp-content/uploads/2020/12/Infosys-Logo.png",
+      logo: inf,
       tier: 'Premium'
     },
     {
       name: "Wipro",
-      logo: "https://logos-world.net/wp-content/uploads/2020/12/Wipro-Logo.png",
+      logo: wipro,
       tier: 'Premium'
     },
     {
       name: "HCL Technologies",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/HCL-Technologies-Logo.png",
+      logo: hcl,
       tier: 'Premium'
     },
     {
       name: "Tech Mahindra",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/Tech-Mahindra-Logo.png",
+      logo: tm,
       tier: 'Premium'
     },
     {
       name: "Accenture",
-      logo: "https://logos-world.net/wp-content/uploads/2020/06/Accenture-Logo.png",
+      logo: acc,
       tier: 'Premium'
     },
     {
       name: "Cognizant",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/Cognizant-Logo.png",
+      logo: cog,
       tier: 'Premium'
     },
     {
       name: "Capgemini",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/Capgemini-Logo.png",
+      logo: capg,
       tier: 'Premium'
     },
     {
       name: "IBM India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/IBM-Logo.png",
+      logo: ibm,
       tier: 'Premium'
     },
     {
       name: "Microsoft India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
+      logo: ms,
       tier: 'Premium'
     },
     {
       name: "Amazon India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png",
+      logo: ama,
       tier: 'Premium'
     },
     {
       name: "Google India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png",
+      logo: ggl,
       tier: 'Premium'
     },
     {
       name: "Dell India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/08/Dell-Logo.png",
+      logo: dell,
       tier: 'Premium'
     },
     {
       name: "Intel India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/07/Intel-Logo.png",
+      logo: intel,
       tier: 'Premium'
     },
     {
       name: "Oracle India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/Oracle-Logo.png",
+      logo: oracle,
       tier: 'Premium'
     },
-    {
-      name: "SAP India",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/SAP-Logo.png",
-      tier: 'Premium'
-    },
-    {
-      name: "Mindtree",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/Mindtree-Logo.png",
-      tier: 'Standard'
-    },
-    {
-      name: "L&T Infotech",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/LTI-Logo.png",
-      tier: 'Standard'
-    },
-    {
-      name: "Mphasis",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/Mphasis-Logo.png",
-      tier: 'Standard'
-    },
-    {
-      name: "Hexaware",
-      logo: "https://logos-world.net/wp-content/uploads/2022/07/Hexaware-Technologies-Logo.png",
-      tier: 'Standard'
-    }
+    
+
   ],
 
   successStories: [
@@ -115,7 +118,7 @@ export const placementsData = {
       role: 'Software Engineer',
       company: 'Infosys',
       package: '₹12 LPA',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      image: priya,
       story: 'From a small town in Uttar Pradesh to Infosys Bangalore. Learnovia\'s training and placement support helped me achieve my dreams in just 6 months.',
       course: 'Full Stack Development',
       rating: 5,
@@ -125,7 +128,7 @@ export const placementsData = {
       role: 'Data Analyst',
       company: 'TCS',
       package: '₹9 LPA',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      image: rajesh,
       story: 'As a mechanical engineer, I never thought I could switch to IT. Learnovia made it possible with their structured Data Science program and dedicated placement cell.',
       course: 'Data Science & Analytics',
       rating: 5,
@@ -135,7 +138,7 @@ export const placementsData = {
       role: 'Cloud Engineer',
       company: 'Wipro',
       package: '₹14 LPA',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      image: anjali,
       story: 'The AWS certification and real-time projects at Learnovia gave me the confidence to crack Wipro interviews. Got placed even before course completion!',
       course: 'Cloud Computing & DevOps',
       rating: 5,
@@ -145,7 +148,7 @@ export const placementsData = {
       role: 'Mobile Developer',
       company: 'Tech Mahindra',
       package: '₹11 LPA',
-      image: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      image: arun,
       story: 'Coming from a non-IT background, Learnovia\'s mobile development course was perfectly structured. The placement team ensured I got multiple offers.',
       course: 'Mobile App Development',
       rating: 5,
@@ -155,7 +158,7 @@ export const placementsData = {
       role: 'Cybersecurity Analyst',
       company: 'HCL Technologies',
       package: '₹13 LPA',
-      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      image: sneha,
       story: 'The cybersecurity program at Learnovia is industry-relevant. Got placed at HCL with a great package and working on exciting security projects.',
       course: 'Cybersecurity Specialist',
       rating: 5,
@@ -165,7 +168,7 @@ export const placementsData = {
       role: 'UI/UX Designer',
       company: 'Accenture',
       package: '₹10 LPA',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
+      image: vikram,
       story: 'Learnovia helped me transition from graphic design to UI/UX. The portfolio building sessions and mock interviews were incredibly helpful for Accenture.',
       course: 'UI/UX Design',
       rating: 5,

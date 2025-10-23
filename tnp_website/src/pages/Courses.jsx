@@ -138,7 +138,7 @@ const Courses = () => {
               : 'opacity-0 translate-y-8'
           }`}>
             Industry-designed curriculum with hands-on projects, expert mentorship, and guaranteed job placement support.
-            Join 850+ Indian professionals trained through CareerPro's industry-aligned programs.
+            Join 850+ Indian professionals trained through Learnovia's industry-aligned programs.
           </p>
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
             heroVisible 

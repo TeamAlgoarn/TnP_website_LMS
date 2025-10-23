@@ -16,7 +16,7 @@ const ContactPage = () => {
         const [isLoading, setIsLoading] = useState(false);
 
         const [mode, setMode] = useState('select'); // 'text' or 'video'
-        const [roomName] = useState(`CareerProSupport-${Math.random().toString(36).substr(2, 9)}`);
+        const [roomName] = useState(`LearnoviaSupport-${Math.random().toString(36).substr(2, 9)}`);
         // const [userName] = useState(formData.name)
         
         // Validation rules
@@ -97,7 +97,7 @@ const ContactPage = () => {
                 <div className="text-center py-8">
                   <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-green-400 mb-2">Message Sent Successfully!</h3>
-                  <p className="text-gray-400">Our CareerPro team will contact you within 2 hours.</p>
+                  <p className="text-gray-400">Our Learnovia team will contact you within 2 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -171,14 +171,14 @@ const ContactPage = () => {
                     {/* Conditional Rendering */}
                     {mode === 'select' && (
                       <div className="text-gray-400 text-center mt-4">
-                        Select a mode to connect with our CareerPro team.
+                        Select a mode to connect with our Learnovia team.
                       </div>
                     )}
 
                     {mode === 'text' && (
                       <div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg max-h-[50vh] overflow-y-auto">
                         {/* Text Chat UI */}
-                        <h3 className="text-xl font-bold mb-4 text-yellow-400">Chat with CareerPro Advisor</h3>
+                        <h3 className="text-xl font-bold mb-4 text-yellow-400">Chat with Learnovia Advisor</h3>
                         <p className="text-gray-200">Get instant guidance on courses and placements.</p>
                         <textarea
                           placeholder="Type your message about career guidance..."
@@ -213,7 +213,7 @@ const ContactPage = () => {
                     disabled={isLoading}
                     className="w-full bg-yellow-400 text-black py-3 px-6 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center"
                   >
-                    {isLoading ? "Sending..." : "Send Message to CareerPro"}
+                    {isLoading ? "Sending..." : "Send Message to Learnovia"}
                     <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>

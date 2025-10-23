@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Star, ArrowRight } from 'lucide-react';
 import { placementsData, placements } from '../data/placements';
-
+import placementImage from '../assets/images/Placements/placement_bg.jpeg';
 const Placements = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
   const statsRef = useRef(null);
@@ -134,12 +134,10 @@ const Placements = () => {
       {/* Hero Section */}
       <section ref={heroRef} className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
         {/* New background image - using a reliable Unsplash URL */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
-          }}
-        ></div>
+       <div 
+         className="absolute inset-0 bg-cover bg-center opacity-20"
+         style={{ backgroundImage: `url(${placementImage})` }}
+       ></div>
         <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${
           heroVisible 
             ? 'opacity-100 translate-y-0' 
@@ -401,7 +399,7 @@ const Placements = () => {
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}>
-            Join 850+ successful Indian professionals who transformed their careers with CareerPro.
+            Join 850+ successful Indian professionals who transformed their careers with Learnovia.
           </p>
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
             ctaVisible 

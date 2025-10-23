@@ -19,7 +19,7 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="bg-black/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
+   <header className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 backdrop-blur-sm border-b border-gray-600 sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -74,7 +74,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900 border-t border-gray-800">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-700 border-t border-gray-600">
             {navigation.map((item) => (
               <Link
                 key={item.name}

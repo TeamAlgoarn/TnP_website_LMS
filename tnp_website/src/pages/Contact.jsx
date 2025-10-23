@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import ContactPage from '../components/ContactPage';
+import contImage from '../assets/images/Contact/cont.jpeg';
+
 // import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
@@ -180,7 +182,10 @@ const Contact = () => {
     <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg')] bg-cover bg-center opacity-20"></div>
+       <div 
+                 className="absolute inset-0 bg-cover bg-center opacity-20"
+                 style={{ backgroundImage: `url(${contImage})` }}
+               ></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div 
             data-animate-id="hero-title"
