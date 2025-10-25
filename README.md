@@ -117,7 +117,7 @@ TnP_website_LMS/
 
 ## ✨ Key Features
 
-### UI Features (Sampreetsingh)
+### UI Features (Sumpreetsing)
 - 🎨 Modern, clean interface with professional design
 - 📱 Fully responsive across mobile, tablet, and desktop
 - ✨ Smooth hover effects and micro-animations
@@ -137,7 +137,7 @@ TnP_website_LMS/
 
 ## 🛠️ Tech Stack
 
-### Frontend (Sampreetsingh)
+### Frontend (Sumpreetsing)
 - **Framework**: React.js
 - **Styling**: Tailwind CSS
 - **Routing**: React Router
@@ -149,6 +149,7 @@ TnP_website_LMS/
 - **Form Handling**: Formspree
 - **State Management**: React Hooks (useState, useEffect)
 - **Component Logic**: Props and component composition
+- **Video Meeting**: Video meeting integration for contact form submission
 
 ---
 
@@ -160,7 +161,7 @@ TnP_website_LMS/
 | **About** | Mission, Vision, Team layout | Team member data integration | Company information and team |
 | **Courses** | Card-based course layout | Course data from JSON | Available training courses |
 | **Placement** | Company logos grid, success stories | Placement data and logos | Partner companies and success stories |
-| **Contact** | Form UI and styling | Form validation + Formspree | Contact form for inquiries |
+| **Contact** | Form UI and styling | Form validation + Formspree | Contact form for inquiries | Communication mode |
 | **Login** | Login UI placeholder | Future LMS integration ready | Placeholder for student portal |
 
 ---
@@ -173,6 +174,7 @@ TnP_website_LMS/
 3. Component integration and data injection
 4. Form functionality and navigation testing
 5. Responsive fixes, testing, and final review
+6. Communication mode, video meeting and text box
 
 ### Communication:
 - Regular sync meetings for integration points
@@ -184,7 +186,7 @@ TnP_website_LMS/
 
 ## 📊 Contribution Summary
 ```
-Sampreetsingh (UI Developer):
+Sumpreetsing (UI Developer):
 ├── Complete UI/UX Implementation
 ├── Responsive Design System
 ├── Tailwind CSS Styling
@@ -196,7 +198,9 @@ Keerthi (Functional Layer):
 ├── Component Logic
 ├── Form Functionality
 ├── State Management
-└── Integration Testing
+├── Integration Testing
+└── Form Handling
+
 ```
 
 ---
