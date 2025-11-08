@@ -1,3 +1,12 @@
+
+
+import sap_hr from '../assets/images/CourseCards/sap_hr.png'
+import sap_crm from '../assets/images/CourseCards/sap_crm.jpg'
+import sap_sd from '../assets/images/CourseCards/sap_sd.jpg'
+import sapfico from '../assets/images/CourseCards/sapfico.jpeg'
+import sapabap from '../assets/images/CourseCards/sapabap.jpeg'
+import sapmm from '../assets/images/CourseCards/sapmm.jpg';
+import saphana from '../assets/images/CourseCards/saphana.jpg'
 import ab_initio from '../assets/images/CourseCards/ab_initio.jpg';
 import ai from '../assets/images/CourseCards/ai.jpeg';
 import angular from '../assets/images/CourseCards/angular.jpeg';
@@ -80,8 +89,95 @@ import uipath from '../assets/images/CourseCards/uipath.webp';
 import unix_shell from '../assets/images/CourseCards/unix_shell.png';
 import workday from '../assets/images/CourseCards/workday.jpeg';
 
+
 export const courses = [
+  // 🟡 SAP COURSES
+ 
   {
+    id: 84,
+    title: "SAP MM Online Training",
+    category: "SAP",
+        image: sapmm,
+   
+    rating: 5.0,
+    ratingsCount: 1850,
+    level: "Beginner",
+    learners: 1900,
+    modes: ["Online |", "One To One"],
+  },
+  {
+    id: 85,
+    title: "SAP ABAP Online Training",
+    category: "SAP",
+        image:sapabap ,
+    
+    
+    rating: 5.0,
+    ratingsCount: 2000,
+    level: "Beginner",
+    learners: 2100,
+    modes: ["Online |", "One To One"],
+  },
+  {
+    id: 86,
+    title: "SAP S/4HANA Online Training",
+    category: "SAP",
+        image:saphana,
+
+    rating: 5.0,
+    ratingsCount: 1950,
+    level: "Beginner",
+    learners: 2050,
+    modes: ["Online |", "One To One"],
+  },
+  {
+  id: 87,
+  title: "SAP FICO (Financial Accounting and Controlling)",
+  category: "SAP",
+  image: sapfico, 
+  rating: 5.0,
+  ratingsCount: 2100,
+  level: "Beginner to Advanced",
+  learners: 2400,
+  modes: ["Online |", "One To One"],
+},
+{
+  id: 88,
+  title: "SAP SD (Sales and Distribution)",
+  category: "SAP",
+  image: sap_sd,
+  rating: 4.9,
+  ratingsCount: 1850,
+  level: "Intermediate",
+  learners: 1900,
+  modes: ["Online |", "One To One"],
+},
+
+
+{
+  id: 90,
+  title: "SAP HR (Human Resources Management)",
+  category: "SAP",
+  image: sap_hr,
+  rating: 4.9,
+  ratingsCount: 1700,
+  level: "Beginner",
+  learners: 1850,
+  modes: ["Online |", "One To One"],
+},
+{
+  id: 91,
+  title: "SAP CRM (Customer Relationship Management)",
+  category: "SAP",
+  image: sap_crm,
+  rating: 5.0,
+  ratingsCount: 2100,
+  level: "Advanced",
+  learners: 2000,
+  modes: ["Online |", "One To One"],
+},
+  {
+    
     id: 1,
     title: "AWS Online Training Course",
     category: "Cloud Computing",

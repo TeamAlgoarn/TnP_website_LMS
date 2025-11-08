@@ -118,7 +118,7 @@ export const placementsData = {
       role: 'Software Engineer',
       company: 'Infosys',
       package: '₹12 LPA',
-      image: priya,
+      // image: priya,
       story: 'From a small town in Uttar Pradesh to Infosys Bangalore. Learnovia\'s training and placement support helped me achieve my dreams in just 6 months.',
       course: 'Full Stack Development',
       rating: 5,
