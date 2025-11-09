@@ -6,10 +6,14 @@ const CourseCard = ({ course }) => {
   const navigate = useNavigate();
 
   return (
+    // <div
+    //   className="item-center bg-gray-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 w-full max-w-sm cursor-pointer overflow-hidden p-4
+    //   hover:bg-gray-800 transition-colors hover:-translate-y-2
+    //                 transition-all duration-200"
+    // >
     <div
-      className="item-center bg-gray-900 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 w-full max-w-sm cursor-pointer overflow-hidden p-4
-      hover:bg-gray-800 transition-colors hover:-translate-y-2
-                    transition-all duration-200"
+      className="flex flex-col justify-between bg-gray-900 rounded-xl shadow-md hover:shadow-2xl w-full max-w-sm cursor-pointer overflow-hidden p-4 h-full
+               hover:bg-gray-800 hover:-translate-y-2 transition-all duration-300"
     >
       {/* Image */}
       <img
@@ -64,14 +68,17 @@ const CourseCard = ({ course }) => {
 
       {/* Buttons */}
       <div className="flex gap-3">
-        <button 
+        <button
           className="flex-1 bg-yellow-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-full text-sm transition"
           onClick={() => navigate("/enroll")}
         >
           Enroll Now
         </button>
-        <button className="flex-1 border border-gray-300 hover:border-blue-600 hover:text-blue-600 font-semibold px-4 py-2 rounded-full text-sm transition
-        "  onClick={() => navigate("/enroll")}>
+        <button
+          className="flex-1 border border-gray-300 hover:border-blue-600 hover:text-blue-600 font-semibold px-4 py-2 rounded-full text-sm transition
+        "
+          onClick={() => navigate("/enroll")}
+        >
           Read More →
         </button>
       </div>
