@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import logo from '../assets/images/Learnovia_logo.png';
+import logo from '../assets/images/logo1.PNG';
 
 const Footer = () => {
   return (
