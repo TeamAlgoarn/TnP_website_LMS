@@ -1,8 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import logo from '../assets/images/Learnovia_logo.png';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+// import logo from '../assets/images/Learnovia_logo.png';
+import logo from "../assets/images/logo1.PNG";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
@@ -11,27 +19,35 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <img 
-                src={logo} 
-                alt="Learnovia Logo" 
-                className="h-12 w-auto"
-              />
+              <img src={logo} alt="Learnovia Logo" className="h-12 w-auto" />
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Empowering careers through comprehensive training programs and guaranteed placement support. 
-              Your success is our mission.
+              Empowering careers through comprehensive training programs and
+              guaranteed placement support. Your success is our mission.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-yellow-400 transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -41,11 +57,46 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-400 hover:text-yellow-400 transition-colors">About Us</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-yellow-400 transition-colors">Courses</Link></li>
-              <li><Link to="/placements" className="text-gray-400 hover:text-yellow-400 transition-colors">Placements</Link></li>
-              <li><Link to="/blog" className="text-gray-400 hover:text-yellow-400 transition-colors">Blog</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-yellow-400 transition-colors">Contact</Link></li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-gray-400 hover:text-yellow-400 transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/courses"
+                  className="text-gray-400 hover:text-yellow-400 transition-colors"
+                >
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/placements"
+                  className="text-gray-400 hover:text-yellow-400 transition-colors"
+                >
+                  Placements
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="text-gray-400 hover:text-yellow-400 transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-gray-400 hover:text-yellow-400 transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -55,21 +106,29 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-gray-400">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <a href="mailto:info@learnovia.in" className="hover:text-yellow-400 transition-colors">
+                <a
+                  href="mailto:info@learnovia.in"
+                  className="hover:text-yellow-400 transition-colors"
+                >
                   info@learnovia.in
                 </a>
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <a href="tel:+918884457701" className="hover:text-yellow-400 transition-colors">
+                <a
+                  href="tel:+918884457701"
+                  className="hover:text-yellow-400 transition-colors"
+                >
                   +91 8884457701
                 </a>
               </li>
               <li className="flex items-start space-x-2 text-gray-400">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                 <span>
-                  Pole Workspaces 33/2 Racha,<br />
-                  Galaxy 21st, Marenahalli, Bangalore North, Vijayanagar,<br />
+                  Pole Workspaces 33/2 Racha,
+                  <br />
+                  Galaxy 21st, Marenahalli, Bangalore North, Vijayanagar,
+                  <br />
                   Bangalore, Karnataka-560040
                 </span>
               </li>
