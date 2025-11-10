@@ -451,7 +451,7 @@ const Contact = () => {
             <h2 className="text-3xl font-bold mb-4">Our Centers Across India</h2>
             <p className="text-gray-400">Serving students from major IT hubs</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { city: 'Bangalore', address: 'Vijayanagar, 560040' },
               { city: 'Hyderabad', address: 'HITEC City, 500081' },
@@ -467,12 +467,41 @@ const Contact = () => {
                 <h3 className="font-semibold mb-2">{location.city}</h3>
                 <p className="text-gray-400 text-sm">{location.address}</p>
               </div>
-            ))}
+            ))} */}
+          {/* </div>
+        </div>
+      </section>
+    </div>
+  );
+}; */}
+
+
+<div className="flex justify-center">
+            {[{ city: "Bangalore", address: "Vijayanagar, 560040" }].map(
+              (location, index) => (
+                <div
+                  key={index}
+                  data-animate-id={`location-${index}`}
+                  className={getAnimationClass(
+                    `location-${index}`,
+                    "bg-black p-6 rounded-lg text-center hover:-translate-y-2 transition-all duration-200"
+                  )}
+                  style={{ padding: "46px" }}
+                >
+                  <MapPin className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
+                  <h3 className="font-semibold mb-2">{location.city}</h3>
+                  {location.city === "Bangalore" && (
+                    <p className="text-gray-400 text-sm">{location.address}</p>
+                  )}
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
     </div>
   );
 };
-
+ 
+ 
 export default Contact;
