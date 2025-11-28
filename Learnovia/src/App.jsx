@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Login from './pages/Login';
 import CourseEnrollPage from './pages/SecureSpotForm';
+import Meeting from './pages/Meeting';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/enroll" element={<CourseEnrollPage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/meeting/:roomId" element={<Meeting />} />
           </Routes>
         </main>
         
